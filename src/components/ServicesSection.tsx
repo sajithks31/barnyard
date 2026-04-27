@@ -68,40 +68,40 @@ const ServiceCard = ({
   const contentOpacity = useTransform(progress, range, [1, isLast ? 1 : -1]);
 
   return (
-    <div ref={container} className="h-[75vh] flex items-center justify-center sticky top-0 px-4 md:px-0">
+    <div ref={container} className="h-[100vh] flex items-center justify-center sticky top-0 px-4 md:px-0">
       <motion.div 
         style={{ 
           scale, 
           opacity,
           zIndex: (idx + 1) * 10,
-          top: `calc(4% + ${idx * 28}px)`
+          top: `calc(8% + ${idx * 28}px)`
         }}
-        className="relative bg-[#FAFAFA] text-black rounded-[32px] md:rounded-[48px] p-6 md:p-12 flex flex-col md:flex-row gap-8 md:gap-12 hover:bg-white transition-all duration-500 group w-full max-w-[1200px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
+        className="relative bg-[#FAFAFA] text-black rounded-[32px] md:rounded-[48px] p-5 md:p-10 flex flex-col md:flex-row gap-8 md:gap-12 hover:bg-white transition-all duration-500 group w-full max-w-[1200px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
       >
         <motion.div 
           style={{ opacity: contentOpacity }}
           className="flex-1 flex flex-col justify-between order-1 md:order-1 h-full"
         >
           <div>
-            <div className="text-3xl md:text-4xl font-extralight mb-8 md:mb-14 opacity-30">+</div>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] font-normal tracking-tighter uppercase mb-6 leading-[0.85] pr-4 md:pr-12">
+            <div className="text-2xl md:text-3xl font-extralight mb-6 md:mb-10 opacity-30">+</div>
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-normal tracking-tighter uppercase mb-4 leading-[0.85] pr-4 md:pr-12">
               {service.title.split(' ').map((word: string, i: number) => (
                 <span key={i} className="block">{word}</span>
               ))}
             </h3>
-            <p className="text-[13px] md:text-[15px] lg:text-[16px] font-normal opacity-60 max-w-full md:max-w-[90%] leading-[1.6] mb-8 md:mb-10">
+            <p className="text-[12px] md:text-[14px] lg:text-[15px] font-normal opacity-60 max-w-full md:max-w-[90%] leading-[1.6] mb-6 md:mb-8">
               {service.description || service.desc}
             </p>
           </div>
-          <button className="rounded-full border border-black/10 px-6 md:px-8 py-2.5 md:py-3 text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase text-black flex items-center justify-center gap-2 md:gap-3 w-max hover:bg-black hover:text-white transition-all duration-300 group/btn self-start mt-auto shadow-sm">
+          <button className="rounded-full border border-black/10 px-5 md:px-7 py-2 md:py-2.5 text-[9px] md:text-[10px] font-bold tracking-[0.25em] uppercase text-black flex items-center justify-center gap-2 md:gap-3 w-max hover:bg-black hover:text-white transition-all duration-300 group/btn self-start mt-auto shadow-sm">
             LEARN MORE
-            <ArrowUpRight className="w-5 h-5 group-hover/btn:translate-x-1.5 group-hover/btn:-translate-y-1.5 transition-transform duration-300" />
+            <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-1.5 group-hover/btn:-translate-y-1.5 transition-transform duration-300" />
           </button>
         </motion.div>
         
         <motion.div 
           style={{ opacity: contentOpacity }}
-          className="w-full md:w-[48%] h-[240px] md:h-auto md:aspect-[4/3.8] overflow-hidden rounded-[24px] md:rounded-[36px] bg-black/5 order-2 md:order-2 mt-6 md:mt-0 relative shadow-inner"
+          className="w-full md:w-[46%] h-[220px] md:h-auto md:aspect-[4/3.2] overflow-hidden rounded-[20px] md:rounded-[32px] bg-black/5 order-2 md:order-2 mt-4 md:mt-0 relative shadow-inner"
         >
           <motion.div style={{ scale: imageScale }} className="w-full h-full">
             <img 
