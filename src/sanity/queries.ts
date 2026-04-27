@@ -1,0 +1,18 @@
+import { groq } from "next-sanity";
+import { client } from "./client";
+
+export const homepageQuery = groq`{
+  "homepage": *[_type == "homepage"][0] {
+    ...,
+    "heroVideoUrl": heroVideo.asset->url
+  },
+  "navigation": *[_type == "navigation"][0],
+  "contactInfo": *[_type == "contactInfo"][0],
+  "services": *[_type == "service"] | order(order asc),
+  "projects": *[_type == "project"] | order(order asc)
+}`;
+
+export async function getHomepageData() {
+  // Add revalidate: 0 to bypass Next.js cache during development while tweaking CMS
+  return client.fetch(homepageQuery, {}, { next: { revalidate: 30 } });
+}

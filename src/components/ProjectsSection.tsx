@@ -1,16 +1,62 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, type Variants } from "framer-motion";
 import { useRef } from "react";
+import { urlFor } from "@/sanity/client";
 
-export default function ProjectsSection() {
+interface ProjectProps {
+  data?: {
+    title: string;
+    year: string;
+    image: any;
+  }[];
+}
+
+const placeholderProjects = [
+  {
+    title: "MOTN • 2025",
+    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop",
+    style: "md:top-[15%] md:left-[10%] w-full md:w-72",
+    aspect: "aspect-[4/3]"
+  },
+  {
+    title: "TVC CAMPAIGN",
+    img: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=600&auto=format&fit=crop",
+    style: "md:top-[35%] md:right-[10%] w-full md:w-80",
+    aspect: "aspect-square"
+  },
+  {
+    title: "EPIC STORIES",
+    img: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=600&auto=format&fit=crop",
+    style: "md:top-[55%] md:left-[5%] w-full md:w-80",
+    aspect: "aspect-[4/3]"
+  },
+  {
+    title: "EVENT COVERAGE",
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600&auto=format&fit=crop",
+    style: "md:top-[75%] md:right-[5%] w-full md:w-72",
+    aspect: "aspect-square"
+  }
+];
+
+export default function ProjectsSection({ data }: ProjectProps) {
+  const displayProjects = data && data.length > 0 
+    ? data.map((p, i) => ({
+        ...p,
+        img: p.image ? urlFor(p.image).url() : placeholderProjects[i % 4].img,
+        title: p.title + (p.year ? ` • ${p.year}` : ""),
+        style: placeholderProjects[i % 4].style,
+        aspect: placeholderProjects[i % 4].aspect
+      })) 
+    : placeholderProjects;
+
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"]
   });
 
-  const bloomVariants = {
+  const bloomVariants: Variants = {
     hidden: { 
       scale: 0.8, 
       opacity: 0,
@@ -53,70 +99,22 @@ export default function ProjectsSection() {
 
       {/* Scrolling Content - Flex on Mobile, Absolute on Desktop */}
       <div className="relative md:absolute inset-0 z-20 pointer-events-none flex flex-col gap-10 px-6 md:px-0">
-        
-        {/* Project 1 */}
-        <div className="relative md:absolute md:top-[15%] md:left-[10%] w-full md:w-72 pointer-events-auto">
-          <motion.div 
-            variants={bloomVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
-            className="bg-white p-4 rounded-xl text-black flex flex-col shadow-2xl"
-          >
-            <div className="text-[10px] font-bold tracking-[0.1em] mb-3 uppercase">MOTN • 2025</div>
-            <div className="w-full aspect-[4/3] rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" alt="Project 1" className="w-full h-full object-cover" />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Project 2 */}
-        <div className="relative md:absolute md:top-[35%] md:right-[10%] w-full md:w-80 pointer-events-auto">
-          <motion.div 
-            variants={bloomVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
-            className="bg-white p-4 rounded-xl text-black flex flex-col shadow-2xl"
-          >
-            <div className="text-[10px] font-bold tracking-[0.1em] mb-3 uppercase">TVC CAMPAIGN</div>
-            <div className="w-full aspect-square rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=600&auto=format&fit=crop" alt="Project 2" className="w-full h-full object-cover" />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Project 3 */}
-        <div className="relative md:absolute md:top-[55%] md:left-[5%] w-full md:w-80 pointer-events-auto">
-          <motion.div 
-            variants={bloomVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
-            className="bg-white p-4 rounded-xl text-black flex flex-col shadow-2xl"
-          >
-            <div className="text-[10px] font-bold tracking-[0.1em] mb-3 uppercase">EPIC STORIES</div>
-            <div className="w-full aspect-[4/3] rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=600&auto=format&fit=crop" alt="Project 3" className="w-full h-full object-cover" />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Project 4 */}
-        <div className="relative md:absolute md:top-[75%] md:right-[5%] w-full md:w-72 pointer-events-auto">
-          <motion.div 
-            variants={bloomVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
-            className="bg-white p-4 rounded-xl text-black flex flex-col shadow-2xl"
-          >
-            <div className="text-[10px] font-bold tracking-[0.1em] mb-3 uppercase">EVENT COVERAGE</div>
-            <div className="w-full aspect-square rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600&auto=format&fit=crop" alt="Project 4" className="w-full h-full object-cover" />
-            </div>
-          </motion.div>
-        </div>
+        {displayProjects.map((project: any, idx) => (
+          <div key={idx} className={`relative md:absolute ${project.style} pointer-events-auto`}>
+            <motion.div 
+              variants={bloomVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="bg-white p-4 rounded-xl text-black flex flex-col shadow-2xl"
+            >
+              <div className="text-[10px] font-bold tracking-[0.1em] mb-3 uppercase">{project.title}</div>
+              <div className={`w-full ${project.aspect} rounded-lg overflow-hidden`}>
+                <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
+              </div>
+            </motion.div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -17,6 +17,12 @@ export const service = defineType({
       type: "text",
     }),
     defineField({
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
       name: "order",
       title: "Order",
       type: "number",

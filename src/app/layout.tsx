@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { getHomepageData } from "@/sanity/queries";
 
 const ppNeueMontreal = localFont({
   src: [
@@ -43,14 +46,31 @@ export const metadata: Metadata = {
   description: "Creating Stories That Move.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let data;
+  try {
+    data = await getHomepageData();
+  } catch (error) {
+    console.error("Sanity fetch error in layout:", error);
+    data = null;
+  }
+
+  const contact = data?.contactInfo || {};
+  const navLinks = data?.navigation?.menuItems;
+
   return (
     <html lang="en" className={`${ppNeueMontreal.variable} h-full antialiased`}>
-      <body className="font-sans min-h-full flex flex-col">{children}</body>
+      <body className="font-sans min-h-full bg-black text-white selection:bg-white selection:text-black flex flex-col overflow-x-hidden">
+        <Navbar data={{ navLinks, contactInfo: contact }} />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer navLinks={navLinks} contactInfo={contact} />
+      </body>
     </html>
   );
 }

@@ -1,10 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-export default function HomeIntro() {
-  const container = {
+interface HomeIntroProps {
+  data?: {
+    introHeadline?: string;
+    introParagraph?: string;
+  };
+}
+
+export default function HomeIntro({ data }: HomeIntroProps) {
+  const headline = data?.introHeadline || "POWERING BRANDS WITH\nCREATIVE THINKING &\nSEAMLESS EXECUTION";
+  const paragraph = data?.introParagraph || "Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands. From first idea to final frame, we combine creative thinking with seamless execution—bringing stories to life in ways that feel authentic, impactful, and impossible to ignore.";
+
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -14,7 +24,7 @@ export default function HomeIntro() {
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { 
       opacity: 1, 
@@ -40,14 +50,12 @@ export default function HomeIntro() {
             ABOUT US
           </motion.span>
           
-          <motion.h2 variants={item} className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-normal tracking-tighter leading-[0.95] mb-10 md:mb-14 uppercase">
-            POWERING BRANDS WITH<br/>
-            CREATIVE THINKING &<br/>
-            SEAMLESS EXECUTION
+          <motion.h2 variants={item} className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-normal tracking-tighter leading-[0.95] mb-10 md:mb-14 uppercase whitespace-pre-wrap">
+            {headline}
           </motion.h2>
           
           <motion.p variants={item} className="text-sm md:text-[15px] lg:text-[17px] text-white/90 mb-12 max-w-[850px] font-light leading-[1.6]">
-            Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands. From first idea to final frame, we combine creative thinking with seamless execution—bringing stories to life in ways that feel authentic, impactful, and impossible to ignore.
+            {paragraph}
           </motion.p>
           
           <motion.div variants={item}>

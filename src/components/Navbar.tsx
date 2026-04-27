@@ -5,15 +5,36 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Navbar() {
+interface NavbarProps {
+  data?: {
+    navLinks?: { title: string; url: string }[];
+    contactInfo?: { socialLinks?: { platform: string; url: string }[] };
+  };
+}
+
+export default function Navbar({ data }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { name: 'HOME', href: '/' },
-    { name: 'OUR SERVICES', href: '#services' },
-    { name: 'OUR WORK', href: '#our-work' },
-    { name: 'ABOUT US', href: '#about-us' },
-    { name: 'CONTACT US', href: '#contact' },
+  const desiredOrder = ['ABOUT US', 'SERVICES', 'OUR SERVICES', 'OUR WORK', 'CONTACT US'];
+  
+  const rawLinks = data?.navLinks?.length ? data.navLinks : [
+    { title: 'ABOUT US', url: '/about' },
+    { title: 'SERVICES', url: '/services' },
+    { title: 'OUR WORK', url: '/projects' },
+    { title: 'CONTACT US', url: '/contact' },
+  ];
+
+  const navLinks = [...rawLinks].sort((a, b) => {
+    const indexA = desiredOrder.indexOf(a.title.toUpperCase());
+    const indexB = desiredOrder.indexOf(b.title.toUpperCase());
+    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+  });
+  
+  const desktopLinks = navLinks.filter(item => item.title !== 'CONTACT US');
+  const socialLinks = data?.contactInfo?.socialLinks || [
+    { platform: "Instagram", url: "#" },
+    { platform: "Linkedin", url: "#" },
+    { platform: "Youtube", url: "#" }
   ];
 
   return (
@@ -36,27 +57,29 @@ export default function Navbar() {
 
           {/* Center: Navigation Menu (Desktop) */}
           <nav className="hidden md:flex items-center gap-10 lg:gap-14">
-            {['ABOUT US', 'SERVICES', 'OUR WORK'].map((item) => (
+            {desktopLinks.map((item) => (
               <Link
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                key={item.title}
+                href={item.url}
                 className="text-[11px] md:text-[13px] font-medium tracking-[0.12em] uppercase text-white hover:opacity-50 transition-opacity"
               >
-                {item}
+                {item.title}
               </Link>
             ))}
           </nav>
 
           {/* Right: CTA Button (Desktop) & Hamburger (Mobile) */}
           <div className="flex items-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="pill-button !hidden md:!flex items-center justify-center gap-2"
-            >
-              CONTACT US
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </motion.button>
+            <Link href="/contact" className="pointer-events-auto">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="pill-button !hidden md:!flex items-center justify-center gap-2"
+              >
+                CONTACT US
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </motion.button>
+            </Link>
 
             {/* Hamburger Button */}
             <button 
@@ -97,17 +120,17 @@ export default function Navbar() {
             <nav className="flex flex-col items-center gap-8 flex-1">
               {navLinks.map((link, idx) => (
                 <motion.div
-                  key={link.name}
+                  key={link.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * idx }}
                 >
                   <Link
-                    href={link.href}
+                    href={link.url}
                     onClick={() => setIsOpen(false)}
                     className="text-3xl font-bold tracking-tighter uppercase text-white hover:text-white/50 transition-colors"
                   >
-                    {link.name}
+                    {link.title}
                   </Link>
                 </motion.div>
               ))}
@@ -115,9 +138,15 @@ export default function Navbar() {
 
             {/* Social Links (Text based) */}
             <div className="flex items-center justify-center gap-8 py-10 opacity-60">
-              <span className="text-[10px] font-bold tracking-[0.2em] text-white cursor-pointer uppercase">Instagram</span>
-              <span className="text-[10px] font-bold tracking-[0.2em] text-white cursor-pointer uppercase">Linkedin</span>
-              <span className="text-[10px] font-bold tracking-[0.2em] text-white cursor-pointer uppercase">Youtube</span>
+              {socialLinks.map((social, idx) => (
+                <a 
+                  key={idx} 
+                  href={social.url} 
+                  className="text-[10px] font-bold tracking-[0.2em] text-white hover:opacity-50 transition-opacity uppercase"
+                >
+                  {social.platform}
+                </a>
+              ))}
             </div>
           </motion.div>
         )}
