@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Plus, Minus, Eye, Target } from "lucide-react";
+import { ArrowUpRight, Plus, Minus } from "lucide-react";
 import { useState, useEffect } from "react";
 import Marquee from "@/components/Marquee";
 import NoiseOverlay from "@/components/NoiseOverlay";
@@ -21,15 +21,13 @@ const missionItems = [
     title: "VISION",
     description: "At Barnyard Productions, our vision is to become a leading force in multimedia storytelling by shaping the future of visual content across the region and beyond. We aim to set new standards in media production by blending artistic expression with cutting-edge technology, creating experiences that inspire and leave a lasting impact.",
     color: "bg-white",
-    textColor: "text-black",
-    icon: Eye
+    textColor: "text-black"
   },
   {
     title: "MISSION",
     description: "We empower bold ideas by transforming them into powerful visual stories that connect with audiences globally. We craft high-quality content across film, advertising, and digital platforms with cinematic precision and creative innovation. As a trusted creative partner, we guide brands and creators from concept to completion, delivering excellence in every frame.",
     color: "bg-white",
-    textColor: "text-black",
-    icon: Target
+    textColor: "text-black"
   }
 ];
 
@@ -96,15 +94,8 @@ export default function AboutPage() {
 
       {/* Hero Title Section */}
       <section className="px-6 md:px-16 lg:px-24 pt-48 pb-32 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10">
-        {/* Background Image with Overlays */}
+        {/* Background Overlays */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/about-hero-bg.png" 
-            alt="Cinematic background" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-[#020205]" />
           <HeroArcs />
         </div>
         
@@ -113,30 +104,15 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-center text-center gap-12"
+            className="flex flex-col items-start text-left gap-12 w-full"
           >
             <h1 className="text-6xl sm:text-7xl md:text-9xl lg:text-[10vw] font-bold tracking-tighter uppercase leading-[0.8] mb-12">
-              ABOUT BARNYARD<br />PRODUCTIONS
+              ABOUT<br />BARNYARD<br />PRODUCTIONS
             </h1>
 
-            {/* Three-Image Hero Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
-              {[0, 1, 2].map((idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.2 + idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className={`aspect-[3/4] relative rounded-[32px] overflow-hidden group ${idx === 1 ? 'md:translate-y-12' : ''}`}
-                >
-                  <img 
-                    src={marqueeImages[idx]} 
-                    alt="Work showcase" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </motion.div>
-              ))}
+            {/* Full-width Image Slider */}
+            <div className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw]">
+              <Marquee images={marqueeImages} speed={40} />
             </div>
           </motion.div>
         </div>
@@ -187,7 +163,6 @@ export default function AboutPage() {
                 className={`${item.color} ${item.textColor} p-12 lg:pt-32 lg:pb-24 lg:px-20 rounded-[32px] flex flex-col items-center text-center min-h-[550px] shadow-2xl relative overflow-hidden border border-black/5`}
               >
                 <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-black/10 text-[11px] font-bold tracking-[0.2em] uppercase mb-20 whitespace-nowrap">
-                  <item.icon className="w-4 h-4" />
                   {item.title}
                 </div>
                 
@@ -208,9 +183,6 @@ export default function AboutPage() {
                 <h2 className="text-6xl md:text-7xl lg:text-[5.5vw] font-bold tracking-tighter uppercase leading-[0.85] break-words">
                   OUR<br />CREATIVE<br />PHILOSOPHY
                 </h2>
-                <p className="text-xl md:text-2xl font-light opacity-80 max-w-md mt-4">
-                  How we think, how we work, and why we do what we do.
-                </p>
               </div>
 
               {/* Right Side: Accordion */}
