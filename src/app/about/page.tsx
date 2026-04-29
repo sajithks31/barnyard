@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Plus, Minus } from "lucide-react";
+import { ArrowUpRight, Plus, Minus, Eye, Target } from "lucide-react";
 import { useState, useEffect } from "react";
 import Marquee from "@/components/Marquee";
 import NoiseOverlay from "@/components/NoiseOverlay";
@@ -21,13 +21,15 @@ const missionItems = [
     title: "VISION",
     description: "At Barnyard Productions, our vision is to become a leading force in multimedia storytelling by shaping the future of visual content across the region and beyond. We aim to set new standards in media production by blending artistic expression with cutting-edge technology, creating experiences that inspire and leave a lasting impact.",
     color: "bg-white",
-    textColor: "text-black"
+    textColor: "text-black",
+    icon: Eye
   },
   {
     title: "MISSION",
     description: "We empower bold ideas by transforming them into powerful visual stories that connect with audiences globally. We craft high-quality content across film, advertising, and digital platforms with cinematic precision and creative innovation. As a trusted creative partner, we guide brands and creators from concept to completion, delivering excellence in every frame.",
     color: "bg-white",
-    textColor: "text-black"
+    textColor: "text-black",
+    icon: Target
   }
 ];
 
@@ -113,12 +115,8 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center text-center gap-12"
           >
-            <div className="inline-flex items-center px-4 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl text-[10px] font-bold tracking-[0.2em] uppercase">
-              ABOUT
-            </div>
-            
-            <h1 className="text-6xl sm:text-7xl md:text-9xl lg:text-[12vw] font-bold tracking-tighter uppercase leading-[0.8] mb-12">
-              BARNYARD<br />PRODUCTIONS
+            <h1 className="text-6xl sm:text-7xl md:text-9xl lg:text-[10vw] font-bold tracking-tighter uppercase leading-[0.8] mb-12">
+              ABOUT BARNYARD<br />PRODUCTIONS
             </h1>
 
             {/* Three-Image Hero Layout */}
@@ -188,7 +186,8 @@ export default function AboutPage() {
                 transition={{ delay: idx * 0.2 }}
                 className={`${item.color} ${item.textColor} p-12 lg:pt-32 lg:pb-24 lg:px-20 rounded-[32px] flex flex-col items-center text-center min-h-[550px] shadow-2xl relative overflow-hidden border border-black/5`}
               >
-                <div className="inline-flex items-center px-8 py-2.5 rounded-full border border-black/10 text-[11px] font-bold tracking-[0.2em] uppercase mb-20 whitespace-nowrap">
+                <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-black/10 text-[11px] font-bold tracking-[0.2em] uppercase mb-20 whitespace-nowrap">
+                  <item.icon className="w-4 h-4" />
                   {item.title}
                 </div>
                 
@@ -204,31 +203,18 @@ export default function AboutPage() {
         <section className="px-6 md:px-12 lg:px-24 pb-32">
           <div className="max-w-[1440px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-              {/* Left Side: Image Gallery */}
-              <div className="lg:col-span-1 hidden lg:flex flex-col gap-4 pt-4">
-                {[3, 4, 5].map((idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="aspect-[4/5] w-full rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl"
-                  >
-                    <img src={marqueeImages[idx]} alt="Philosophy visual" className="w-full h-full object-cover" />
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Center: Title */}
+              {/* Left Side: Title */}
               <div className="lg:col-span-5 flex flex-col gap-6 pt-10">
-                <h2 className="text-6xl md:text-7xl lg:text-[7.5vw] font-bold tracking-tighter uppercase leading-[0.85]">
+                <h2 className="text-6xl md:text-7xl lg:text-[5.5vw] font-bold tracking-tighter uppercase leading-[0.85] break-words">
                   OUR<br />CREATIVE<br />PHILOSOPHY
                 </h2>
+                <p className="text-xl md:text-2xl font-light opacity-80 max-w-md mt-4">
+                  How we think, how we work, and why we do what we do.
+                </p>
               </div>
 
               {/* Right Side: Accordion */}
-              <div className="lg:col-span-6 flex flex-col gap-6">
+              <div className="lg:col-span-7 flex flex-col gap-6">
                 {philosophyItems.map((item) => (
                   <div 
                     key={item.id} 
