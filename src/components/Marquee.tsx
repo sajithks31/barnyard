@@ -34,7 +34,7 @@ export default function Marquee({ images, speed = 40, reverse = false }: Marquee
             <img
               src={src}
               alt={`Gallery Image ${idx}`}
-              className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover transition-all duration-700 hover:scale-105"
             />
           </div>
         ))}
