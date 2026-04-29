@@ -83,10 +83,10 @@ export default function Marquee({ images, speed = 40, reverse = false }: Marquee
   };
 
   return (
-    <div className="relative flex overflow-hidden py-10 select-none">
+    <div className="relative w-full overflow-hidden py-10 select-none">
       <div
         ref={scrollRef}
-        className={`flex flex-nowrap shrink-0 overflow-x-hidden ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className={`flex flex-nowrap w-full overflow-x-hidden ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={onMouseLeave}
@@ -100,13 +100,13 @@ export default function Marquee({ images, speed = 40, reverse = false }: Marquee
             {images.map((src, idx) => (
               <div
                 key={idx}
-                className="relative shrink-0 w-[300px] md:w-[450px] aspect-[4/5] rounded-[30px] overflow-hidden bg-neutral-900 border border-white/5 pointer-events-none"
+                className="relative shrink-0 w-[300px] md:w-[450px] aspect-[4/5] rounded-[30px] overflow-hidden bg-neutral-900 border border-white/5"
               >
                 <img
                   src={src}
                   alt={`Gallery Image ${idx}`}
                   draggable={false}
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 hover:scale-105 pointer-events-auto"
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 hover:scale-105"
                 />
               </div>
             ))}
