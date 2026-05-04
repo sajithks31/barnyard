@@ -8,25 +8,32 @@ import Image from "next/image";
 export default function NotFound() {
   return (
     <div className="bg-black min-h-screen text-white flex flex-col items-center justify-center relative overflow-hidden selection:bg-white selection:text-black z-50">
-      {/* Background Glows */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/20 blur-[150px] rounded-full opacity-50" />
-        <div className="absolute top-1/2 left-[70%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/20 blur-[150px] rounded-full opacity-50" />
+      {/* Background Glow Image */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+        <div className="relative w-full max-w-[1400px] aspect-video opacity-60">
+          <Image 
+            src="/glow.png" 
+            alt="Background Glow" 
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center max-w-full px-6 pt-20 md:pt-0">
+      <div className="relative z-10 flex flex-col items-center max-w-full px-6">
         {/* 404 Numbers */}
-        <div className="relative flex items-center justify-center select-none font-bold min-h-[30vh] md:min-h-[400px] lg:min-h-[500px]">
-          <span className="text-[35vw] md:text-[380px] lg:text-[480px] tracking-[-0.08em] leading-none">4</span>
+        <div className="relative flex items-center justify-center select-none font-bold">
+          <span className="text-[25vw] md:text-[280px] lg:text-[350px] tracking-[-0.08em] leading-none">4</span>
           
-          <div className="relative flex items-center justify-center w-[0.7em] md:w-[250px] lg:w-[320px] h-full">
-            <span className="text-[35vw] md:text-[380px] lg:text-[480px] tracking-[-0.08em] leading-none">0</span>
+          <div className="relative flex items-center justify-center w-[0.7em] md:w-[180px] lg:w-[240px]">
+            <span className="text-[25vw] md:text-[280px] lg:text-[350px] tracking-[-0.08em] leading-none">0</span>
             {/* Astronaut Image - Floating effect */}
             <motion.div 
-              initial={{ y: 40, opacity: 0, scale: 0.8, rotate: -5 }}
+              initial={{ y: 30, opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ 
-                y: [0, -40, 0], 
+                y: [0, -30, 0], 
                 rotate: [-5, 5, -5],
                 opacity: 1, 
                 scale: 1 
@@ -45,22 +52,22 @@ export default function NotFound() {
                 fill
                 className="object-contain"
                 priority
-                sizes="(max-width: 768px) 80vw, 600px"
+                sizes="(max-width: 768px) 80vw, 500px"
               />
             </motion.div>
           </div>
           
-          <span className="text-[35vw] md:text-[380px] lg:text-[480px] tracking-[-0.08em] leading-none">4</span>
+          <span className="text-[25vw] md:text-[280px] lg:text-[350px] tracking-[-0.08em] leading-none">4</span>
         </div>
 
         {/* Text and Button */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="flex flex-col items-center gap-10 mt-10 md:mt-20 lg:mt-24"
+          transition={{ delay: 0.8, duration: 1 }}
+          className="flex flex-col items-center gap-8 mt-6 md:mt-12"
         >
-          <h1 className="text-3xl md:text-5xl lg:text-7xl font-normal tracking-[0.1em] uppercase text-center">
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-normal tracking-[0.1em] uppercase text-center">
             PAGE <span className="italic font-light">NOT</span> FOUND
           </h1>
 
@@ -68,10 +75,10 @@ export default function NotFound() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-4 group backdrop-blur-md"
+              className="px-8 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-3 group backdrop-blur-md"
             >
-              <span className="text-xs font-bold tracking-[0.2em] uppercase">CONTACT US</span>
-              <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase">CONTACT US</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </motion.button>
           </Link>
         </motion.div>
