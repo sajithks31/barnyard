@@ -31,29 +31,33 @@ export default function NotFound() {
             <span className="text-[25vw] md:text-[280px] lg:text-[350px] tracking-[-0.08em] leading-none">0</span>
             {/* Astronaut Image - Floating effect */}
             <motion.div 
-              initial={{ y: 30, opacity: 0, scale: 0.8, rotate: -5 }}
-              animate={{ 
-                y: [0, -30, 0], 
-                rotate: [-5, 5, -5],
-                opacity: 1, 
-                scale: 1 
-              }}
-              transition={{ 
-                y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-                opacity: { duration: 1.5 },
-                scale: { duration: 1.5 }
-              }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[180%] h-[180%] pointer-events-none"
             >
-              <Image 
-                src="/astronaut.png" 
-                alt="Astronaut" 
-                fill
-                className="object-contain"
-                priority
-                sizes="(max-width: 768px) 80vw, 500px"
-              />
+              <motion.div
+                animate={{ 
+                  y: [0, -20, 0], 
+                  rotate: [-3, 3, -3],
+                }}
+                transition={{ 
+                  duration: 6, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+                className="w-full h-full relative"
+                style={{ willChange: "transform" }}
+              >
+                <Image 
+                  src="/astronaut.png" 
+                  alt="Astronaut" 
+                  fill
+                  className="object-contain"
+                  priority
+                  sizes="(max-width: 768px) 80vw, 500px"
+                />
+              </motion.div>
             </motion.div>
           </div>
           
