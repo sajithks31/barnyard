@@ -22,7 +22,7 @@ export default function NotFound() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center max-w-full px-6">
+      <div className="relative z-10 flex flex-col items-center max-w-full px-6 pt-28 md:pt-36">
         {/* 404 Numbers */}
         <div className="relative flex items-center justify-center select-none font-bold">
           <span className="text-[25vw] md:text-[280px] lg:text-[350px] tracking-[-0.08em] leading-none">4</span>
