@@ -6,7 +6,7 @@ export default defineConfig({
   name: 'default',
   title: 'Barnyard CMS',
   
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string || 'defaultProjectId',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string || '01qv31nl',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET as string || 'production',
   
   basePath: '/studio',
