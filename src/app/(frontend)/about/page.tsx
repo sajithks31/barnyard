@@ -127,7 +127,6 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="w-full flex flex-col items-center justify-center text-center p-4 md:p-6 mb-6"
             >
               {/* Centered Content */}
@@ -171,6 +170,7 @@ export default function AboutPage() {
                 </p>
               </motion.div>
             ))}
+          </div>
         </section>
         
         {/* Creative Philosophy Section */}
