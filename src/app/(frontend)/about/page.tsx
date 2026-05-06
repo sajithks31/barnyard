@@ -95,7 +95,7 @@ export default function AboutPage() {
       {/* Hero Title Section */}
       <section className="px-6 md:px-16 lg:px-24 pt-48 pb-32 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10">
         {/* Background Overlays */}
-        <div className="absolute inset-0 z-0 bg-[#020205]">
+        <div className="absolute inset-0 z-0 bg-black">
           <HeroArcs />
         </div>
         
@@ -120,8 +120,6 @@ export default function AboutPage() {
 
       {/* Main Content Sections (Flowing over the fixed background) */}
       <div className="relative z-10 isolate">
-        {/* Soft transition from Hero background (black-ish) to video background */}
-        <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-[#020205] to-transparent pointer-events-none z-10" />
         
         {/* Video Background CTA / Banner */}
         <section className="px-6 md:px-12 lg:px-24 mb-24 pt-48 relative z-20">
@@ -134,7 +132,10 @@ export default function AboutPage() {
               className="w-full flex flex-col items-center justify-center text-center p-8 md:p-12 mb-12"
             >
               {/* Centered Content */}
-              <div className="relative z-20 flex flex-col items-center gap-10">
+              <div className="relative z-20 flex flex-col items-center gap-6 md:gap-10">
+                <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-white/20 text-[11px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
+                  ABOUT BARNYARD
+                </div>
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase leading-[1.05] max-w-[12ch]">
                   OFFERING END-TO-END MEDIA SOLUTIONS TAILORED JUST FOR YOU
                 </h2>
@@ -160,9 +161,9 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                className={`${item.color} ${item.textColor} p-12 lg:pt-32 lg:pb-24 lg:px-20 rounded-[32px] flex flex-col items-center text-center min-h-[550px] shadow-2xl relative overflow-hidden border border-black/5`}
+                className={`${item.color} ${item.textColor} p-10 lg:pt-24 lg:pb-20 lg:px-16 rounded-[32px] flex flex-col items-center text-center min-h-[450px] shadow-2xl relative overflow-hidden border border-black/5`}
               >
-                <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-black/10 text-[11px] font-bold tracking-[0.2em] uppercase mb-20 whitespace-nowrap">
+                <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-black/10 text-[11px] font-bold tracking-[0.2em] uppercase mb-16 whitespace-nowrap">
                   {item.title}
                 </div>
                 
@@ -190,18 +191,18 @@ export default function AboutPage() {
                 {philosophyItems.map((item) => (
                   <div 
                     key={item.id} 
-                    className="bg-white/95 backdrop-blur-sm rounded-[40px] overflow-hidden cursor-pointer shadow-sm group border border-black/5"
+                    className="bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden cursor-pointer shadow-sm group border border-black/5"
                     onClick={() => setOpenPhilosophy(openPhilosophy === item.id ? null : item.id)}
                   >
-                    <div className="flex items-center justify-between p-8 md:p-10">
+                    <div className="flex items-center justify-between p-6 md:p-8">
                       <h3 className="text-2xl md:text-3xl font-bold tracking-tighter text-black">
                         {item.title}
                       </h3>
-                      <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-[#E31E24] shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <div className="shrink-0 w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                         {openPhilosophy === item.id ? (
-                          <Minus className="w-6 h-6 text-white" strokeWidth={3} />
+                          <Minus className="w-8 h-8 text-[#E31E24]" strokeWidth={2} />
                         ) : (
-                          <Plus className="w-6 h-6 text-white" strokeWidth={3} />
+                          <Plus className="w-8 h-8 text-[#E31E24]" strokeWidth={2} />
                         )}
                       </div>
                     </div>
@@ -215,7 +216,7 @@ export default function AboutPage() {
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-8 pb-10 md:px-10 md:pb-12 text-black/60 text-lg leading-relaxed max-w-xl">
+                      <div className="px-6 pb-6 md:px-8 md:pb-8 text-black/60 text-lg leading-relaxed max-w-xl">
                         {item.content}
                       </div>
                     </motion.div>
