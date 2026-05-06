@@ -151,7 +151,7 @@ export default function AboutPage() {
         </section>
 
         {/* Vision & Mission Cards (White) */}
-        <section className="px-6 md:px-12 lg:px-24 mb-32 md:mb-48">
+        <section className="px-6 md:px-12 lg:px-24 mb-12 relative z-20">
           <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {missionItems.map((item, idx) => (
               <motion.div
@@ -171,12 +171,10 @@ export default function AboutPage() {
                 </p>
               </motion.div>
             ))}
-          </div>
         </section>
-        </div> {/* End Video Wrapper */}
-
+        
         {/* Creative Philosophy Section */}
-        <section className="px-6 md:px-12 lg:px-24 pt-32 pb-32 bg-black relative z-20">
+        <section className="px-6 md:px-12 lg:px-24 pt-12 pb-32 relative z-20">
           <div className="max-w-[1440px] mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
               {/* Left Side: Title */}
@@ -227,6 +225,7 @@ export default function AboutPage() {
           </div>
         </section>
       </div>
+      </div> {/* End Video Wrapper */}
     </div>
   );
 }
