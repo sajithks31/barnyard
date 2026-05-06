@@ -69,7 +69,7 @@ export default function AboutPage() {
       {/* Removed fixed video background to avoid hard cuts with black sections */}
 
       {/* Hero Title Section */}
-      <section className="px-6 md:px-16 lg:px-24 pt-48 pb-12 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10 bg-black">
+      <section className="px-6 md:px-16 lg:px-24 pt-48 pb-8 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10 bg-black">
         {/* Background Overlays */}
         <div className="absolute inset-0 z-0 bg-black">
           <HeroArcs />
@@ -120,17 +120,18 @@ export default function AboutPage() {
           </div>
 
           {/* Video Background CTA / Banner */}
-          <section className="px-6 md:px-12 lg:px-24 mb-24 pt-16 relative z-20">
+          <section className="px-6 md:px-12 lg:px-24 mb-16 pt-8 relative z-20">
             <div className="max-w-[1440px] mx-auto relative z-10">
               <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full flex flex-col items-center justify-center text-center p-8 md:p-12 mb-12"
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full flex flex-col items-center justify-center text-center p-4 md:p-6 mb-6"
             >
               {/* Centered Content */}
-              <div className="relative z-20 flex flex-col items-center gap-6 md:gap-10">
+              <div className="relative z-20 flex flex-col items-center gap-4 md:gap-6">
                 <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-white/20 text-[11px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
                   ABOUT BARNYARD
                 </div>
@@ -141,7 +142,7 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Narrative Text Centered Below */}
-            <div className="mt-24 max-w-4xl mx-auto text-center px-4">
+            <div className="mt-4 max-w-4xl mx-auto text-center px-4">
               <p className="text-lg md:text-xl lg:text-2xl font-light leading-relaxed opacity-60">
                 Barnyard Productions is a UAE-based creative media company specializing in high-quality video production, advertising, and multimedia content. From concept to creation, we bring stories to life through bold visuals, cinematic storytelling, and strategic messaging. Whether it's commercials, branded content, corporate films, or digital media, our team blends creativity with technical expertise to deliver impactful results.
               </p>
