@@ -224,6 +224,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+        </section>
       </div>
       </div> {/* End Video Wrapper */}
       
