@@ -180,7 +180,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
               {/* Left Side: Title */}
               <div className="lg:col-span-5 flex flex-col gap-6 pt-10">
-                <h2 className="text-6xl md:text-7xl lg:text-[5.5vw] font-bold tracking-tighter uppercase leading-[0.85] break-words">
+                <h2 className="text-6xl md:text-7xl lg:text-[4.5vw] font-bold tracking-tighter uppercase leading-[0.85] break-keep">
                   OUR<br />CREATIVE<br />PHILOSOPHY
                 </h2>
               </div>
