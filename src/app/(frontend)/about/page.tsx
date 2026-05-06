@@ -133,8 +133,8 @@ export default function AboutPage() {
                 <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-white/20 text-[11px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
                   ABOUT BARNYARD
                 </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-normal uppercase leading-[1.15] max-w-[15ch]">
-                  OFFERING END-TO-END MEDIA SOLUTIONS TAILORED JUST FOR YOU
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-normal uppercase leading-[1.15]">
+                  OFFERING END-TO-END<br />MEDIA SOLUTIONS<br />TAILORED JUST FOR YOU
                 </h2>
               </div>
             </motion.div>
