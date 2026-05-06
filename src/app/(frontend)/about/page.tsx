@@ -66,31 +66,7 @@ export default function AboutPage() {
     <div className="text-white selection:bg-white selection:text-black min-h-screen relative">
       <NoiseOverlay />
       
-      {/* Universal Background for the whole page scroll (Fixed) */}
-      {isMounted && (
-        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Base Background (Consistent with global dark theme) */}
-          <div className="absolute inset-0 bg-black" />
-          
-          {/* The main video background with coverage */}
-          <div className="absolute inset-0 opacity-40">
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/offering-end.mp4" type="video/mp4" />
-            </video>
-          </div>
-          
-          {/* Atmospheric Glows (Fixed while scrolling for depth) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,_rgba(227,30,36,0.1)_0%,_transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,_rgba(0,100,255,0.08)_0%,_transparent_60%)]" />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
-      )}
+      {/* Removed fixed video background to avoid hard cuts with black sections */}
 
       {/* Hero Title Section */}
       <section className="px-6 md:px-16 lg:px-24 pt-48 pb-32 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10 bg-black">
@@ -118,15 +94,33 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Main Content Sections (Flowing over the fixed background) */}
+      {/* Main Content Sections */}
       <div className="relative z-10 isolate">
         
-        {/* Video Background CTA / Banner */}
-        <section className="px-6 md:px-12 lg:px-24 mb-24 pt-48 relative z-20">
-          {/* Gradient transition from black hero section down to transparent video */}
-          <div className="absolute top-0 left-0 right-0 h-[30vh] bg-gradient-to-b from-black via-black/60 to-transparent z-0 pointer-events-none" />
-          
-          <div className="max-w-[1440px] mx-auto relative z-10">
+        {/* Wrapper for the Video Background Area */}
+        <div className="relative">
+          {/* Video Background specific to these two sections */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover opacity-40"
+            >
+              <source src="/offering-end.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,_rgba(227,30,36,0.1)_0%,_transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,_rgba(0,100,255,0.08)_0%,_transparent_60%)]" />
+            <div className="absolute inset-0 bg-black/20" />
+            
+            {/* Top and Bottom Fades to blend seamlessly with the black sections */}
+            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black to-transparent" />
+          </div>
+
+          {/* Video Background CTA / Banner */}
+          <section className="px-6 md:px-12 lg:px-24 mb-24 pt-64 relative z-20">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -177,12 +171,10 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        </div> {/* End Video Wrapper */}
 
         {/* Creative Philosophy Section */}
-        <section className="px-6 md:px-12 lg:px-24 pt-32 pb-32 relative z-20">
-          {/* Gradient transition to black at the bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black z-0 pointer-events-none" />
-          
+        <section className="px-6 md:px-12 lg:px-24 pt-32 pb-32 bg-black relative z-20">
           <div className="max-w-[1440px] mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
               {/* Left Side: Title */}
