@@ -69,7 +69,7 @@ export default function AboutPage() {
       {/* Removed fixed video background to avoid hard cuts with black sections */}
 
       {/* Hero Title Section */}
-      <section className="px-6 md:px-16 lg:px-24 pt-48 pb-32 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10 bg-black">
+      <section className="px-6 md:px-16 lg:px-24 pt-48 pb-12 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10 bg-black">
         {/* Background Overlays */}
         <div className="absolute inset-0 z-0 bg-black">
           <HeroArcs />
