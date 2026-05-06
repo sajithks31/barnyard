@@ -115,8 +115,8 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-black/20" />
             
             {/* Top and Bottom Fades to blend seamlessly with the black sections */}
-            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
           </div>
 
           {/* Video Background CTA / Banner */}
