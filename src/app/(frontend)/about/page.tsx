@@ -121,7 +121,8 @@ export default function AboutPage() {
 
           {/* Video Background CTA / Banner */}
           <section className="px-6 md:px-12 lg:px-24 mb-24 pt-16 relative z-20">
-            <motion.div 
+            <div className="max-w-[1440px] mx-auto relative z-10">
+              <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
