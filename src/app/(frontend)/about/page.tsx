@@ -82,7 +82,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start text-left gap-12 w-full"
           >
-            <h1 className="text-6xl sm:text-7xl md:text-9xl lg:text-[10vw] font-bold tracking-tighter uppercase leading-[0.8] mb-12">
+            <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[10vw] font-bold tracking-tighter uppercase leading-[0.8] mb-12">
               ABOUT<br />BARNYARD<br />PRODUCTIONS
             </h1>
 
