@@ -176,8 +176,11 @@ export default function AboutPage() {
         </section>
 
         {/* Creative Philosophy Section */}
-        <section className="px-6 md:px-12 lg:px-24 pt-32 pb-32 bg-black relative z-20">
-          <div className="max-w-[1440px] mx-auto">
+        <section className="px-6 md:px-12 lg:px-24 pt-32 pb-32 relative z-20">
+          {/* Gradient transition to black at the bottom */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black z-0 pointer-events-none" />
+          
+          <div className="max-w-[1440px] mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
               {/* Left Side: Title */}
               <div className="lg:col-span-5 flex flex-col gap-6 pt-10">
