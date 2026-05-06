@@ -123,6 +123,23 @@ async function seed() {
       });
     }
 
+    // 6. Seed Tools
+    console.log("📝 Seeding Tools...");
+    const tools = [
+      { title: "Cinema Rig 1", description: "TECHNICAL EXCELLENCE", order: 1 },
+      { title: "Lens Detail", description: "TECHNICAL EXCELLENCE", order: 2 },
+      { title: "On Set", description: "TECHNICAL EXCELLENCE", order: 3 },
+      { title: "Mastering", description: "TECHNICAL EXCELLENCE", order: 4 },
+      { title: "Audio Gear", description: "TECHNICAL EXCELLENCE", order: 5 },
+    ];
+
+    for (const t of tools) {
+      await client.create({
+        _type: "tool",
+        ...t,
+      });
+    }
+
     console.log("✅ Migration complete! You can now see the content in your Sanity Studio.");
   } catch (err: any) {
     console.error("❌ Migration failed:", err.message);

@@ -3,5 +3,6 @@ import { service } from "./service";
 import { homepage } from "./homepage";
 import { navigation } from "./navigation";
 import { contactInfo } from "./contactInfo";
+import { tool } from "./tool";
 
-export const schemaTypes = [project, service, homepage, navigation, contactInfo];
+export const schemaTypes = [project, service, homepage, navigation, contactInfo, tool];

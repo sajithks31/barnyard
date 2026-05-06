@@ -33,6 +33,9 @@ export default async function Home() {
       {/* Projects Section */}
       <ProjectsSection data={data?.projects} />
 
+      {/* Rotating Gallery (Our Tools) */}
+      <RotatingGallery data={data?.tools} />
+
       {/* LET'S CONNECT (Homepage Only) */}
       <ContactSection contactInfo={contact} />
     </div>

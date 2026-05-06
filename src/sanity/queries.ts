@@ -12,7 +12,8 @@ export const homepageQuery = groq`{
     "logoUrl": logo.asset->url
   },
   "services": *[_type == "service"] | order(order asc),
-  "projects": *[_type == "project"] | order(order asc)
+  "projects": *[_type == "project"] | order(order asc),
+  "tools": *[_type == "tool"] | order(order asc)
 }`;
 
 export async function getHomepageData() {

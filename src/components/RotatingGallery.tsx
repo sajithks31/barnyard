@@ -3,19 +3,34 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-const images = [
-  { url: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop", title: "Cinema Rig 1" },
-  { url: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop", title: "Lens Detail" },
-  { url: "https://images.unsplash.com/photo-1542204113-e93847e21a4d?q=80&w=1000&auto=format&fit=crop", title: "On Set" },
-  { url: "https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?q=80&w=1000&auto=format&fit=crop", title: "Mastering" },
-  { url: "https://images.unsplash.com/photo-1524169358666-79f22534bc6e?q=80&w=1000&auto=format&fit=crop", title: "Audio Gear" },
+import { urlFor } from "@/sanity/client";
+
+const placeholderImages = [
+  { url: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop", title: "Cinema Rig 1", description: "TECHNICAL EXCELLENCE" },
+  { url: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop", title: "Lens Detail", description: "TECHNICAL EXCELLENCE" },
+  { url: "https://images.unsplash.com/photo-1542204113-e93847e21a4d?q=80&w=1000&auto=format&fit=crop", title: "On Set", description: "TECHNICAL EXCELLENCE" },
+  { url: "https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?q=80&w=1000&auto=format&fit=crop", title: "Mastering", description: "TECHNICAL EXCELLENCE" },
+  { url: "https://images.unsplash.com/photo-1524169358666-79f22534bc6e?q=80&w=1000&auto=format&fit=crop", title: "Audio Gear", description: "TECHNICAL EXCELLENCE" },
 ];
 
-export default function RotatingGallery() {
+interface RotatingGalleryProps {
+  data?: {
+    title: string;
+    description?: string;
+    image: any;
+  }[];
+}
+
+export default function RotatingGallery({ data }: RotatingGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollXProgress } = useScroll({
-    container: containerRef,
-  });
+  
+  const displayItems = data && data.length > 0 
+    ? data.map(item => ({
+        url: item.image ? urlFor(item.image).url() : "https://via.placeholder.com/1000",
+        title: item.title,
+        description: item.description || "TECHNICAL EXCELLENCE"
+      }))
+    : placeholderImages;
 
   return (
     <div className="relative py-24">
@@ -38,7 +53,7 @@ export default function RotatingGallery() {
         ref={containerRef}
         className="flex gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory px-6 md:px-[20vw]"
       >
-        {images.map((img, i) => (
+        {displayItems.map((img, i) => (
           <GalleryItem key={i} img={img} index={i} />
         ))}
       </div>
@@ -62,7 +77,7 @@ function GalleryItem({ img, index }: { img: any; index: number }) {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
         <h3 className="text-2xl font-bold">{img.title}</h3>
-        <p className="text-white/60 text-sm mt-2">TECHNICAL EXCELLENCE</p>
+        <p className="text-white/60 text-sm mt-2">{img.description}</p>
       </div>
     </motion.div>
   );
