@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import HomeIntro from "@/components/HomeIntro";
 import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import RotatingGallery from "@/components/RotatingGallery";
 import { ArrowUpRight } from "lucide-react";
 import { getHomepageData } from "@/sanity/queries";
 
