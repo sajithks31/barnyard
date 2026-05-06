@@ -17,6 +17,13 @@ export const service = defineType({
       type: "text",
     }),
     defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      description: "Small labels like 'TVCs', 'Commercial', etc.",
+    }),
+    defineField({
       name: "image",
       title: "Image",
       type: "image",

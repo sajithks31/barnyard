@@ -9,6 +9,7 @@ interface ServiceProps {
   data?: {
     title: string;
     description: string;
+    tags?: string[];
     image: any;
   }[];
 }
@@ -92,6 +93,16 @@ const ServiceCard = ({
             <p className="text-[12px] md:text-[14px] lg:text-[15px] font-normal opacity-60 max-w-full md:max-w-[90%] leading-[1.6] mb-6 md:mb-8">
               {service.description || service.desc}
             </p>
+            
+            {service.tags && service.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-8">
+                {service.tags.map((tag: string, i: number) => (
+                  <span key={i} className="px-3 py-1 rounded-full border border-black/10 text-[9px] font-bold tracking-wider uppercase opacity-40">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
           <button className="rounded-full border border-black/10 px-5 md:px-7 py-2 md:py-2.5 text-[9px] md:text-[10px] font-bold tracking-[0.25em] uppercase text-black flex items-center justify-center gap-2 md:gap-3 w-max hover:bg-black hover:text-white transition-all duration-300 group/btn self-start mt-auto shadow-sm">
             LEARN MORE

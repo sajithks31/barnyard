@@ -74,69 +74,85 @@ async function seed() {
     console.log("📝 Seeding Services...");
     const services = [
       {
+        id: "service-video",
         title: "VIDEO PRODUCTION",
         description: "We bring stories to life through visual motion. Using high-end cinema cameras and seamless execution, our team creates TVCs, branded content, documentaries and more.",
+        tags: ["TVCs", "Branded Content", "Documentaries", "Social Media"],
         order: 1,
       },
       {
+        id: "service-photo",
         title: "PHOTOGRAPHY",
         description: "From striking commercial campaigns to product photography and styling, capturing the perfect image to elevate your brand is our specialty.",
+        tags: ["Commercial", "Product", "Fashion", "Editorial"],
         order: 2,
       },
       {
+        id: "service-creative",
         title: "CREATIVE & PRE-PRODUCTION",
         description: "A great piece of content starts with a strong idea. We handle every step of pre-production, planning & logistics to ensure a seamless shoot.",
+        tags: ["Ideation", "Scripting", "Storyboarding", "Casting"],
         order: 3,
       },
       {
+        id: "service-post",
         title: "POST PRODUCTION",
         description: "The magic happens in the edit state. Our post-production team specializes in offline & online editing, color grading, sound design and VFX.",
+        tags: ["Editing", "Color Grading", "VFX", "Sound Design"],
         order: 4,
       },
       {
+        id: "service-onsite",
         title: "ON-SITE SERVICES",
         description: "As an extension of your internal marketing function, we integrate right across your business to offer dedicated, on-demand creative and digital services.",
+        tags: ["Dedicated Team", "Digital Strategy", "On-Demand"],
         order: 5,
       },
     ];
 
     for (const s of services) {
-      await client.create({
+      const { id, ...data } = s;
+      await client.createOrReplace({
+        _id: id,
         _type: "service",
-        ...s,
+        ...data,
       });
     }
 
     // 5. Seed Projects
     console.log("📝 Seeding Projects...");
     const projects = [
-      { title: "MOTN", year: "2025", order: 1 },
-      { title: "TVC CAMPAIGN", year: "2024", order: 2 },
-      { title: "EPIC STORIES", year: "2024", order: 3 },
-      { title: "EVENT COVERAGE", year: "2024", order: 4 },
+      { id: "project-motn", title: "MOTN", year: "2025", order: 1 },
+      { id: "project-tvc", title: "TVC CAMPAIGN", year: "2024", order: 2 },
+      { id: "project-epic", title: "EPIC STORIES", year: "2024", order: 3 },
+      { id: "project-event", title: "EVENT COVERAGE", year: "2024", order: 4 },
     ];
 
     for (const p of projects) {
-      await client.create({
+      const { id, ...data } = p;
+      await client.createOrReplace({
+        _id: id,
         _type: "project",
-        ...p,
+        ...data,
       });
     }
 
     // 6. Seed Tools
     console.log("📝 Seeding Tools...");
     const tools = [
-      { title: "Cinema Rig 1", description: "TECHNICAL EXCELLENCE", order: 1 },
-      { title: "Lens Detail", description: "TECHNICAL EXCELLENCE", order: 2 },
-      { title: "On Set", description: "TECHNICAL EXCELLENCE", order: 3 },
-      { title: "Mastering", description: "TECHNICAL EXCELLENCE", order: 4 },
-      { title: "Audio Gear", description: "TECHNICAL EXCELLENCE", order: 5 },
+      { id: "tool-cinema", title: "Cinema Rig 1", description: "TECHNICAL EXCELLENCE", order: 1 },
+      { id: "tool-lens", title: "Lens Detail", description: "TECHNICAL EXCELLENCE", order: 2 },
+      { id: "tool-set", title: "On Set", description: "TECHNICAL EXCELLENCE", order: 3 },
+      { id: "tool-master", title: "Mastering", description: "TECHNICAL EXCELLENCE", order: 4 },
+      { id: "tool-audio", title: "Audio Gear", description: "TECHNICAL EXCELLENCE", order: 5 },
     ];
 
     for (const t of tools) {
-      await client.create({
+      const { id, ...data } = t;
+      await client.createOrReplace({
+        _id: id,
         _type: "tool",
-        ...t,
+        ...data,
       });
     }
 
