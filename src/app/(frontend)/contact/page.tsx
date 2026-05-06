@@ -45,7 +45,7 @@ export default function ContactPage() {
             </div>
 
             <div className="flex flex-col gap-10 mt-auto">
-              <div className="border-t border-white/20 pt-8">
+              <div className="pt-8">
                 <p className="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-3">EMAIL</p>
                 <a href="mailto:hello@barnyard.ae" className="text-xl md:text-2xl font-normal hover:text-white/60 transition-colors">hello@barnyard.ae</a>
               </div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              <button className="inline-flex items-center justify-between px-8 py-5 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all duration-500 mt-4 group">
+              <button className="inline-flex items-center justify-between px-8 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all duration-500 mt-4 group w-max gap-8">
                 <span className="text-sm font-bold tracking-[0.2em] uppercase">SUBMIT</span>
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </button>
