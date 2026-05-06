@@ -17,6 +17,7 @@ export default async function FrontendLayout({
 
   const contact = data?.contactInfo || {};
   const navLinks = data?.navigation?.menuItems;
+  const footerNavLinks = data?.navigation?.footerMenuItems;
 
   return (
     <>
@@ -24,7 +25,7 @@ export default async function FrontendLayout({
       <main className="flex-grow">
         {children}
       </main>
-      <Footer navLinks={navLinks} contactInfo={contact} />
+      <Footer navLinks={navLinks} footerNavLinks={footerNavLinks} contactInfo={contact} />
     </>
   );
 }

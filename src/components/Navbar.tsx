@@ -8,7 +8,11 @@ import { useState } from "react";
 interface NavbarProps {
   data?: {
     navLinks?: { title: string; url: string }[];
-    contactInfo?: { socialLinks?: { platform: string; url: string }[] };
+    contactInfo?: { 
+      socialLinks?: { platform: string; url: string }[];
+      logoUrl?: string;
+      navbarCta?: { label: string; url: string };
+    };
   };
 }
 
@@ -37,6 +41,9 @@ export default function Navbar({ data }: NavbarProps) {
     { platform: "Youtube", url: "#" }
   ];
 
+  const logoUrl = data?.contactInfo?.logoUrl || "/logo.png";
+  const cta = data?.contactInfo?.navbarCta || { label: "CONTACT US", url: "/contact" };
+
   return (
     <>
       <motion.header
@@ -49,7 +56,7 @@ export default function Navbar({ data }: NavbarProps) {
           {/* Left: Logo Section */}
           <Link href="/" className="flex items-center group pointer-events-auto">
             <img 
-              src="/logo.png" 
+              src={logoUrl} 
               alt="Farm Studio" 
               className="w-auto h-[25px] md:h-[40px] lg:h-[45px] object-contain hover:opacity-80 transition-opacity" 
             />
@@ -70,13 +77,13 @@ export default function Navbar({ data }: NavbarProps) {
 
           {/* Right: CTA Button (Desktop) & Hamburger (Mobile) */}
           <div className="flex items-center gap-4">
-            <Link href="/contact" className="pointer-events-auto">
+            <Link href={cta.url} className="pointer-events-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="pill-button !hidden md:!flex items-center justify-center gap-2"
               >
-                CONTACT US
+                {cta.label}
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </motion.button>
             </Link>
@@ -104,7 +111,7 @@ export default function Navbar({ data }: NavbarProps) {
             {/* Header in Menu */}
             <div className="flex items-center justify-between mb-20">
               <img 
-                src="/logo.png" 
+                src={logoUrl} 
                 alt="Farm Studio" 
                 className="w-auto h-[25px] object-contain" 
               />

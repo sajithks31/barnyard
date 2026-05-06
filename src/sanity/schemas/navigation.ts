@@ -24,5 +24,19 @@ export const navigation = defineType({
         },
       ],
     }),
+    defineField({
+      name: "footerMenuItems",
+      title: "Footer Menu Items",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "title", title: "Title", type: "string" },
+            { name: "url", title: "URL", type: "string" },
+          ],
+        },
+      ],
+    }),
   ],
 });

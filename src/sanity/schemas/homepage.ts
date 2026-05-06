@@ -17,6 +17,7 @@ export const homepage = defineType({
       title: "Hero Title Lines",
       type: "array",
       of: [{ type: "string" }],
+      initialValue: ["CREATING", "STORIES+", "THAT MOVE"],
       description: "The big headline words like 'CREATING', 'STORIES+', 'THAT MOVE'",
     }),
     defineField({
@@ -31,6 +32,10 @@ export const homepage = defineType({
             { name: "url", type: "string", title: "URL (e.g. #services)" },
           ],
         },
+      ],
+      initialValue: [
+        { label: "OUR SERVICES", url: "#services" },
+        { label: "OUR WORK", url: "/projects" },
       ],
     }),
     defineField({

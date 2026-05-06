@@ -11,8 +11,44 @@ export default defineConfig({
   
   basePath: '/studio',
   
-  plugins: [structureTool()],
-
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Content')
+          .items([
+            S.listItem()
+              .title('Homepage')
+              .id('homepage')
+              .child(
+                S.document()
+                  .schemaType('homepage')
+                  .documentId('homepage')
+              ),
+            S.listItem()
+              .title('Navigation')
+              .id('navigation')
+              .child(
+                S.document()
+                  .schemaType('navigation')
+                  .documentId('navigation')
+              ),
+            S.listItem()
+              .title('Contact Info & Settings')
+              .id('contactInfo')
+              .child(
+                S.document()
+                  .schemaType('contactInfo')
+                  .documentId('contactInfo')
+              ),
+            S.divider(),
+            // Regular document types
+            ...S.documentTypeListItems().filter(
+              (item) => !['homepage', 'navigation', 'contactInfo'].includes(item.getId()!)
+            ),
+          ]),
+    }),
+  ],
   schema: {
     types: schemaTypes,
   },
