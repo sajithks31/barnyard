@@ -26,18 +26,20 @@ export default function Footer({ navLinks, contactInfo }: FooterProps) {
           <div className="flex flex-col sm:flex-row items-center gap-8 lg:gap-12">
             <nav className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-[11px] md:text-[12px] font-bold tracking-[0.12em] uppercase">
               {(navLinks || [
-                { title: "SERVICES", url: "/#services" },
-                { title: "WORK", url: "/#our-work" },
-                { title: "ABOUT", url: "/about" }
+                { title: "About US", url: "/about" },
+                { title: "Services", url: "/services" },
+                { title: "Our Work", url: "/projects" }
               ]).map((link: any, i: number) => (
                 <a key={i} href={link.url} className="hover:opacity-60 transition-opacity">{link.title}</a>
               ))}
             </nav>
 
-            <button className="w-full sm:w-auto rounded-full border border-black px-8 py-4 text-[11px] md:text-[12px] font-bold tracking-[0.15em] uppercase hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-4 shrink-0 pointer-events-auto">
-              CONTACT
-              <ArrowUpRight className="w-4 h-4 transition-transform" />
-            </button>
+            <a href="/contact" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto rounded-full border border-black px-8 py-4 text-[11px] md:text-[12px] font-bold tracking-[0.15em] uppercase hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-4 shrink-0 pointer-events-auto">
+                CONTACT
+                <ArrowUpRight className="w-4 h-4 transition-transform" />
+              </button>
+            </a>
           </div>
         </div>
         
