@@ -124,7 +124,7 @@ async function seed() {
     }
 
     console.log("✅ Migration complete! You can now see the content in your Sanity Studio.");
-  } catch (err) {
+  } catch (err: any) {
     console.error("❌ Migration failed:", err.message);
   }
 }
