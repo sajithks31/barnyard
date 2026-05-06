@@ -41,7 +41,7 @@ export default function ContactSection({ contactInfo = {} }: ContactSectionProps
           </div>
           
           <div className="flex flex-col flex-1 justify-between gap-4 mt-0">
-            <div className="border-b border-white/20 pb-4">
+            <div className="pb-4">
               <p className="text-[9px] sm:text-[11px] font-normal tracking-[0.1em] uppercase opacity-60 mb-2">EMAIL</p>
               <a href={`mailto:${contact.email || "hello@barnyard.ae"}`} className="text-[13px] md:text-[14px] font-normal hover:opacity-70 transition-opacity">{contact.email || "hello@barnyard.ae"}</a>
             </div>
@@ -103,7 +103,7 @@ export default function ContactSection({ contactInfo = {} }: ContactSectionProps
               </div>
             </div>
             <div className="pt-2">
-              <button className="w-full md:w-max rounded-[100px] border border-white/30 px-10 py-3 text-[11px] md:text-[12px] font-medium tracking-[0.1em] uppercase hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-3 text-white bg-transparent">
+              <button className="w-full md:w-max rounded-[100px] border border-white/30 px-8 py-2.5 text-[11px] font-medium tracking-[0.1em] uppercase hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2.5 text-white bg-transparent">
                 SUBMIT
                 <ArrowUpRight className="w-4 h-4 transition-transform" />
               </button>

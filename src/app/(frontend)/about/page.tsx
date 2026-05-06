@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Marquee from "@/components/Marquee";
 import NoiseOverlay from "@/components/NoiseOverlay";
 import HeroArcs from "@/components/HeroArcs";
+import ContactSection from "@/components/ContactSection";
 
 const marqueeImages = [
   "https://images.unsplash.com/photo-1542204113-e93847e21a4d?auto=format&fit=crop&q=80&w=1000",
@@ -223,9 +224,11 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section>
       </div>
       </div> {/* End Video Wrapper */}
+      
+      {/* LET'S CONNECT */}
+      <ContactSection />
     </div>
   );
 }
