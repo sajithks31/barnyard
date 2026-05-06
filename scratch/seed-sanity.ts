@@ -156,6 +156,49 @@ async function seed() {
       });
     }
 
+    // 7. Seed About Page
+    console.log("📝 Seeding About Page...");
+    await client.createOrReplace({
+      _id: "aboutPage",
+      _type: "aboutPage",
+      heroTitle: ["ABOUT", "BARNYARD", "PRODUCTIONS"],
+      bannerHeadline: ["OFFERING END-TO-END", "MEDIA SOLUTIONS", "TAILORED JUST FOR YOU"],
+      bannerParagraph: "Barnyard Productions is a UAE-based creative media company specializing in high-quality video production, advertising, and multimedia content. From concept to creation, we bring stories to life through bold visuals, cinematic storytelling, and strategic messaging. Whether it's commercials, branded content, corporate films, or digital media, our team blends creativity with technical expertise to deliver impactful results.",
+      visionMission: [
+        {
+          title: "VISION",
+          description: "At Barnyard Productions, our vision is to become a leading force in multimedia storytelling by shaping the future of visual content across the region and beyond. We aim to set new standards in media production by blending artistic expression with cutting-edge technology, creating experiences that inspire and leave a lasting impact.",
+        },
+        {
+          title: "MISSION",
+          description: "We empower bold ideas by transforming them into powerful visual stories that connect with audiences globally. We craft high-quality content across film, advertising, and digital platforms with cinematic precision and creative innovation. As a trusted creative partner, we guide brands and creators from concept to completion, delivering excellence in every frame.",
+        },
+      ],
+      philosophyTitle: ["OUR", "CREATIVE", "PHILOSOPHY"],
+      philosophyItems: [
+        {
+          id: "01",
+          title: "STORY FIRST, ALWAYS",
+          content: "We believe that every project, regardless of its scale, must be rooted in a compelling narrative. Our process starts with finding the heart of the story, ensuring that every visual element serves a purpose and resonates with the audience on a deeper level.",
+        },
+        {
+          id: "02",
+          title: "DETAILS MAKE THE DIFFERENCE",
+          content: "Precision in planning and execution is what transforms good work into exceptional work. We obsess over the micro-details of cinematography, lighting, and sound to ensure a flawless final output.",
+        },
+        {
+          id: "03",
+          title: "COLLABORATION FUELS CREATIVITY",
+          content: "We view our clients as partners. Through open communication, strategic insight, and shared vision, we achieve results that exceed expectations. Our collaborative process ensures that every stakeholder is aligned.",
+        },
+        {
+          id: "04",
+          title: "CREATE WITH IMPACT",
+          content: "Our goal is not just to create content, but to leave a lasting impression. We build visual experiences that provoke thought, evoke emotion, and drive engagement.",
+        },
+      ],
+    });
+
     console.log("✅ Migration complete! You can now see the content in your Sanity Studio.");
   } catch (err: any) {
     console.error("❌ Migration failed:", err.message);

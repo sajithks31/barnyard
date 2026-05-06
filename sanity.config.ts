@@ -41,10 +41,18 @@ export default defineConfig({
                   .schemaType('contactInfo')
                   .documentId('contactInfo')
               ),
+            S.listItem()
+              .title('About Page')
+              .id('aboutPage')
+              .child(
+                S.document()
+                  .schemaType('aboutPage')
+                  .documentId('aboutPage')
+              ),
             S.divider(),
             // Regular document types
             ...S.documentTypeListItems().filter(
-              (item) => !['homepage', 'navigation', 'contactInfo'].includes(item.getId()!)
+              (item) => !['homepage', 'navigation', 'contactInfo', 'aboutPage'].includes(item.getId()!)
             ),
           ]),
     }),

@@ -1,0 +1,245 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowUpRight, Plus, Minus } from "lucide-react";
+import { useState, useEffect } from "react";
+import Marquee from "@/components/Marquee";
+import NoiseOverlay from "@/components/NoiseOverlay";
+import HeroArcs from "@/components/HeroArcs";
+
+interface AboutPageProps {
+  data?: any;
+}
+
+const defaultMarqueeImages = [
+  "https://images.unsplash.com/photo-1542204113-e93847e21a4d?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1492691523567-69750d18a05e?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1524169358666-79f22534bc6e?auto=format&fit=crop&q=80&w=1000",
+];
+
+const defaultMissionItems = [
+  {
+    title: "VISION",
+    description: "At Barnyard Productions, our vision is to become a leading force in multimedia storytelling by shaping the future of visual content across the region and beyond. We aim to set new standards in media production by blending artistic expression with cutting-edge technology, creating experiences that inspire and leave a lasting impact.",
+  },
+  {
+    title: "MISSION",
+    description: "We empower bold ideas by transforming them into powerful visual stories that connect with audiences globally. We craft high-quality content across film, advertising, and digital platforms with cinematic precision and creative innovation. As a trusted creative partner, we guide brands and creators from concept to completion, delivering excellence in every frame.",
+  }
+];
+
+const defaultPhilosophyItems = [
+  {
+    id: "01",
+    title: "STORY FIRST, ALWAYS",
+    content: "We believe that every project, regardless of its scale, must be rooted in a compelling narrative. Our process starts with finding the heart of the story, ensuring that every visual element serves a purpose and resonates with the audience on a deeper level."
+  },
+  {
+    id: "02",
+    title: "DETAILS MAKE THE DIFFERENCE",
+    content: "Precision in planning and execution is what transforms good work into exceptional work. We obsess over the micro-details of cinematography, lighting, and sound to ensure a flawless final output."
+  },
+  {
+    id: "03",
+    title: "COLLABORATION FUELS CREATIVITY",
+    content: "We view our clients as partners. Through open communication, strategic insight, and shared vision, we achieve results that exceed expectations. Our collaborative process ensures that every stakeholder is aligned."
+  },
+  {
+    id: "04",
+    title: "CREATE WITH IMPACT",
+    content: "Our goal is not just to create content, but to leave a lasting impression. We build visual experiences that provoke thought, evoke emotion, and drive engagement."
+  }
+];
+
+export default function ClientAbout({ data }: AboutPageProps) {
+  const [openPhilosophy, setOpenPhilosophy] = useState<string | null>("02");
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const heroTitle = data?.heroTitle || ["ABOUT", "BARNYARD", "PRODUCTIONS"];
+  const marqueeImages = data?.marqueeImageUrls || defaultMarqueeImages;
+  const bannerHeadline = data?.bannerHeadline || ["OFFERING END-TO-END", "MEDIA SOLUTIONS", "TAILORED JUST FOR YOU"];
+  const bannerParagraph = data?.bannerParagraph || "Barnyard Productions is a UAE-based creative media company specializing in high-quality video production, advertising, and multimedia content. From concept to creation, we bring stories to life through bold visuals, cinematic storytelling, and strategic messaging. Whether it's commercials, branded content, corporate films, or digital media, our team blends creativity with technical expertise to deliver impactful results.";
+  const bannerVideoUrl = data?.bannerVideoUrl || "/offering-end.mp4";
+  const missionItems = data?.visionMission || defaultMissionItems;
+  const philosophyTitle = data?.philosophyTitle || ["OUR", "CREATIVE", "PHILOSOPHY"];
+  const philosophyItems = data?.philosophyItems || defaultPhilosophyItems;
+
+  return (
+    <div className="text-white selection:bg-white selection:text-black min-h-screen relative">
+      <NoiseOverlay />
+      
+      {/* Hero Title Section */}
+      <section className="px-6 md:px-16 lg:px-24 pt-48 pb-8 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10 bg-black">
+        {/* Background Overlays */}
+        <div className="absolute inset-0 z-0 bg-black">
+          <HeroArcs />
+        </div>
+        
+        <div className="max-w-[1440px] mx-auto relative z-10 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-start text-left gap-12 w-full"
+          >
+            <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[10vw] font-bold tracking-tighter uppercase leading-[0.8] mb-12">
+              {heroTitle.map((line: string, i: number) => (
+                <span key={i} className="block">{line}</span>
+              ))}
+            </h1>
+
+            {/* Full-width Image Slider */}
+            <div className="w-[100vw] relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw]">
+              <Marquee images={marqueeImages} speed={40} />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Main Content Sections */}
+      <div className="relative z-10 isolate">
+        
+        {/* Wrapper for the Video Background Area */}
+        <div className="relative">
+          {/* Video Background specific to these two sections */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <video 
+              key={bannerVideoUrl}
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover opacity-40"
+            >
+              <source src={bannerVideoUrl} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,_rgba(227,30,36,0.1)_0%,_transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,_rgba(0,100,255,0.08)_0%,_transparent_60%)]" />
+            <div className="absolute inset-0 bg-black/20" />
+            
+            {/* Top and Bottom Fades to blend seamlessly with the black sections */}
+            <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+          </div>
+
+          {/* Video Background CTA / Banner */}
+          <section className="px-6 md:px-12 lg:px-24 mb-16 pt-8 relative z-20">
+            <div className="max-w-[1440px] mx-auto relative z-10">
+              <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full flex flex-col items-center justify-center text-center p-4 md:p-6 mb-6"
+            >
+              {/* Centered Content */}
+              <div className="relative z-20 flex flex-col items-center gap-4 md:gap-6">
+                <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-white/20 text-[11px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
+                  ABOUT BARNYARD
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-normal uppercase leading-[1.15]">
+                  {bannerHeadline.map((line: string, i: number) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
+                </h2>
+              </div>
+            </motion.div>
+
+            {/* Narrative Text Centered Below */}
+            <div className="mt-4 max-w-4xl mx-auto text-center px-4">
+              <p className="text-lg md:text-xl lg:text-2xl font-light leading-relaxed opacity-60">
+                {bannerParagraph}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Vision & Mission Cards (White) */}
+        <section className="px-6 md:px-12 lg:px-24 mb-12 relative z-20">
+          <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {missionItems.map((item: any, idx: number) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.2 }}
+                className="bg-white text-black p-10 lg:pt-24 lg:pb-20 lg:px-16 rounded-[32px] flex flex-col items-center text-center min-h-[450px] shadow-2xl relative overflow-hidden border border-black/5"
+              >
+                <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-black/10 text-[11px] font-bold tracking-[0.2em] uppercase mb-16 whitespace-nowrap">
+                  {item.title}
+                </div>
+                
+                <p className="text-lg md:text-xl lg:text-2xl font-normal leading-relaxed opacity-80 max-w-[90%]">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+        
+        {/* Creative Philosophy Section */}
+        <section className="px-6 md:px-12 lg:px-24 pt-12 pb-32 relative z-20">
+          <div className="max-w-[1440px] mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+              {/* Left Side: Title */}
+              <div className="lg:col-span-5 flex flex-col gap-6 pt-10">
+                <h2 className="text-5xl md:text-7xl lg:text-[4.5vw] font-bold tracking-tighter uppercase leading-[0.85] break-keep">
+                  {philosophyTitle.map((line: string, i: number) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
+                </h2>
+              </div>
+
+              {/* Right Side: Accordion */}
+              <div className="lg:col-span-7 flex flex-col gap-6">
+                {philosophyItems.map((item: any) => (
+                  <div 
+                    key={item.id} 
+                    className="bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden cursor-pointer shadow-sm group border border-black/5"
+                    onClick={() => setOpenPhilosophy(openPhilosophy === item.id ? null : item.id)}
+                  >
+                    <div className="flex items-center justify-between p-6 md:p-8">
+                      <h3 className="text-2xl md:text-3xl font-bold tracking-tighter text-black">
+                        {item.title}
+                      </h3>
+                      <div className="shrink-0 w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        {openPhilosophy === item.id ? (
+                          <Minus className="w-8 h-8 text-[#E31E24]" strokeWidth={2} />
+                        ) : (
+                          <Plus className="w-8 h-8 text-[#E31E24]" strokeWidth={2} />
+                        )}
+                      </div>
+                    </div>
+                    
+                    <motion.div
+                      initial={false}
+                      animate={{ 
+                        height: openPhilosophy === item.id ? "auto" : 0, 
+                        opacity: openPhilosophy === item.id ? 1 : 0 
+                      }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6 md:px-8 md:pb-8 text-black/60 text-lg leading-relaxed max-w-xl">
+                        {item.content}
+                      </div>
+                    </motion.div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      </div> {/* End Video Wrapper */}
+    </div>
+  );
+}
