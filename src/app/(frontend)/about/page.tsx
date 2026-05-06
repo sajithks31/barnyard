@@ -123,7 +123,10 @@ export default function AboutPage() {
         
         {/* Video Background CTA / Banner */}
         <section className="px-6 md:px-12 lg:px-24 mb-24 pt-48 relative z-20">
-          <div className="max-w-[1440px] mx-auto">
+          {/* Gradient transition from black hero section down to transparent video */}
+          <div className="absolute top-0 left-0 right-0 h-[30vh] bg-gradient-to-b from-black via-black/60 to-transparent z-0 pointer-events-none" />
+          
+          <div className="max-w-[1440px] mx-auto relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
