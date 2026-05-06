@@ -70,7 +70,7 @@ export default function AboutPage() {
       {isMounted && (
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
           {/* Base Background (Consistent with global dark theme) */}
-          <div className="absolute inset-0 bg-[#020205]" />
+          <div className="absolute inset-0 bg-black" />
           
           {/* The main video background with coverage */}
           <div className="absolute inset-0 opacity-40">
@@ -93,7 +93,7 @@ export default function AboutPage() {
       )}
 
       {/* Hero Title Section */}
-      <section className="px-6 md:px-16 lg:px-24 pt-48 pb-32 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10">
+      <section className="px-6 md:px-16 lg:px-24 pt-48 pb-32 mb-0 relative overflow-hidden min-h-[90vh] flex items-center justify-center z-10 bg-black">
         {/* Background Overlays */}
         <div className="absolute inset-0 z-0 bg-black">
           <HeroArcs />
@@ -136,7 +136,7 @@ export default function AboutPage() {
                 <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-white/20 text-[11px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
                   ABOUT BARNYARD
                 </div>
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase leading-[1.05] max-w-[12ch]">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-normal uppercase leading-[1.15] max-w-[15ch]">
                   OFFERING END-TO-END MEDIA SOLUTIONS TAILORED JUST FOR YOU
                 </h2>
               </div>
@@ -176,7 +176,7 @@ export default function AboutPage() {
         </section>
 
         {/* Creative Philosophy Section */}
-        <section className="px-6 md:px-12 lg:px-24 pb-32">
+        <section className="px-6 md:px-12 lg:px-24 pt-32 pb-32 bg-black relative z-20">
           <div className="max-w-[1440px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
               {/* Left Side: Title */}
