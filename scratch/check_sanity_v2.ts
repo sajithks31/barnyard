@@ -5,6 +5,7 @@ const client = createClient({
   dataset: "production",
   apiVersion: "2024-01-01",
   useCdn: false,
+  token: "skJie1A2lEsdihhMpZj6exZBnVelxU9aWvrGr5VzjQnjTAp6MEl6f9fFp1o7fetbwnx9Ud07Vli1FAk2vr1TaLPJaWJQ9H2KQk4glNJp7QyBBBRVBGJ26YVM1fdlKFSoFf7owgG1Z3wih3khUTjTswzruwjsayYLH9GQjQc12k6v3uB6FGob",
 });
 
 async function checkContent() {
@@ -13,7 +14,8 @@ async function checkContent() {
   console.log("DOCS BY ID:", JSON.stringify(docs, null, 2));
 
   const allTypes = await client.fetch(`*`);
-  console.log("ALL DOCUMENTS:", JSON.stringify(allTypes.map((d: any) => ({ id: d._id, type: d._type })), null, 2));
+  const allProjects = await client.fetch(`*[_type == "project"]`);
+  console.log("ALL PROJECTS:", JSON.stringify(allProjects, null, 2));
 }
 
 checkContent().catch(console.error);

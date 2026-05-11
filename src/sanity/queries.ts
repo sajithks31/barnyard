@@ -32,7 +32,7 @@ export const homepageQuery = groq`{
 
 export async function getHomepageData() {
   // Add revalidate: 0 to bypass Next.js cache during development while tweaking CMS
-  return client.fetch(homepageQuery, {}, { next: { revalidate: 30 } });
+  return client.fetch(homepageQuery, {}, { next: { revalidate: 0 } });
 }
 
 export async function getAboutPageData() {
@@ -41,7 +41,7 @@ export async function getAboutPageData() {
     "marqueeImageUrls": marqueeImages[].asset->url,
     "bannerVideoUrl": bannerVideo.asset->url
   }`;
-  return client.fetch(query, {}, { next: { revalidate: 30 } });
+  return client.fetch(query, {}, { next: { revalidate: 0 } });
 }
 
 export async function getServicesData() {
@@ -49,5 +49,5 @@ export async function getServicesData() {
     ...,
     "imageUrl": image.asset->url
   }`;
-  return client.fetch(query, {}, { next: { revalidate: 30 } });
+  return client.fetch(query, {}, { next: { revalidate: 0 } });
 }
