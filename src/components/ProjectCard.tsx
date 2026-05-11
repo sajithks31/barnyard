@@ -9,7 +9,6 @@ interface ProjectCardProps {
     year?: string;
     category?: string;
     image?: any;
-    imageUrl?: string;
     aspectRatio?: string;
   };
   index: number;
