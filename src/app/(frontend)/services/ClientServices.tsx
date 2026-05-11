@@ -42,8 +42,9 @@ const servicesPlaceholder = [
   }
 ];
 
-export default function ClientServices({ data }: ServicesProps) {
-  const displayServices = data && data.length > 0 ? data : servicesPlaceholder;
+export default function ClientServices({ data }: any) {
+  const pageSettings = data?.pageSettings;
+  const displayServices = data?.services && data.services.length > 0 ? data.services : servicesPlaceholder;
 
   return (
     <div className="bg-black text-white selection:bg-white selection:text-black min-h-screen">
@@ -61,7 +62,7 @@ export default function ClientServices({ data }: ServicesProps) {
             className="flex flex-col gap-6"
           >
              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9.5vw] font-bold tracking-tighter uppercase leading-[0.85]">
-               FROM<br />CONCEPT TO<br />FINAL FRAME
+               {pageSettings?.title || "FROM CONCEPT TO FINAL FRAME"}
              </h1>
           </motion.div>
         </div>

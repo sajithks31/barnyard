@@ -45,9 +45,12 @@ export async function getAboutPageData() {
 }
 
 export async function getServicesData() {
-  const query = groq`*[_type == "service"] | order(order asc) {
-    ...,
-    "imageUrl": image.asset->url
+  const query = groq`{
+    "pageSettings": *[_type == "servicesPage"][0],
+    "services": *[_type == "service"] | order(order asc) {
+      ...,
+      "imageUrl": image.asset->url
+    }
   }`;
   return client.fetch(query, {}, { next: { revalidate: 0 } });
 }
