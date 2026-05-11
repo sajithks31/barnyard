@@ -110,7 +110,7 @@ export default function ClientServices({ data }: ServicesProps) {
               
               <div className="w-full lg:w-[45%] lg:max-w-[500px] h-[300px] md:h-[400px] lg:h-auto overflow-hidden rounded-[24px] md:rounded-[32px] bg-black/5 mt-auto mb-auto aspect-[4/3] lg:aspect-auto flex-shrink-0">
                 <img 
-                  src={service.image ? urlFor(service.image).url() : (service.imageUrl || service.image || service.img)} 
+                  src={service.image?.asset ? urlFor(service.image).url() : (service.imageUrl || (typeof service.image === 'string' ? service.image : service.img))} 
                   alt={service.title} 
                   className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
