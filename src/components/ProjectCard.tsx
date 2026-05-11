@@ -8,7 +8,8 @@ interface ProjectCardProps {
     title: string;
     year?: string;
     category?: string;
-    image?: string;
+    image?: any;
+    imageUrl?: string;
     aspectRatio?: string;
   };
   index: number;
