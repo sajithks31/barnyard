@@ -48,7 +48,12 @@ export default async function ProjectsPage() {
         {rawProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-20 md:gap-y-32 items-start">
             {rawProjects.map((project: any, idx: number) => (
-              <ProjectCard key={project._id || idx} project={project} index={idx} />
+              <div key={project._id || idx} className="flex flex-col gap-4">
+                <div className="bg-red-500/20 p-2 text-[10px] font-mono break-all text-red-200">
+                  IMAGE_URL: {project.imageUrl || "NULL"}
+                </div>
+                <ProjectCard project={project} index={idx} />
+              </div>
             ))}
           </div>
         ) : (
