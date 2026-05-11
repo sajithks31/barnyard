@@ -16,7 +16,6 @@ export default async function TestSanityPage() {
             src={p.imageUrl} 
             alt="from query" 
             style={{ width: "200px", border: "2px solid red" }} 
-            onError={(e) => console.log("Image failed:", p.title)}
           />
         </div>
       ))}
