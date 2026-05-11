@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import HomeIntro from "@/components/HomeIntro";
 import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import RotatingGallery from "@/components/RotatingGallery";
 import { ArrowUpRight } from "lucide-react";
 import { getHomepageData } from "@/sanity/queries";
 
@@ -33,9 +32,6 @@ export default async function Home() {
 
       {/* Projects Section */}
       <ProjectsSection data={data?.projects} />
-
-      {/* Rotating Gallery (Our Tools) */}
-      <RotatingGallery data={data?.tools} />
 
       {/* LET'S CONNECT (Homepage Only) */}
       <ContactSection contactInfo={contact} />
