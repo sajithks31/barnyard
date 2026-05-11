@@ -53,10 +53,6 @@ export async function getServicesData() {
 }
 
 export async function getProjectsData() {
-  const query = groq`*[_type == "project"] | order(order asc) {
-    ...,
-    "imageUrl": image.asset->url
-  }`;
-  const data = await client.fetch(query, {}, { next: { revalidate: 0 } });
-  return data;
+  const query = groq`*[_type == "project"] | order(order asc)`;
+  return client.fetch(query, {}, { next: { revalidate: 0 } });
 }
