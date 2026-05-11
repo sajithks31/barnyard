@@ -14,8 +14,8 @@ async function checkContent() {
   console.log("DOCS BY ID:", JSON.stringify(docs, null, 2));
 
   const allTypes = await client.fetch(`*`);
-  const allProjects = await client.fetch(`*[_type == "project"]`);
-  console.log("ALL PROJECTS:", JSON.stringify(allProjects, null, 2));
+  const allProjects = await client.fetch(`*[_type == "project"]{title, "url": image.asset->url}`);
+  console.log("PROJECT IMAGES:", JSON.stringify(allProjects, null, 2));
 }
 
 checkContent().catch(console.error);

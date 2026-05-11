@@ -4,57 +4,6 @@ import ProjectCard from "@/components/ProjectCard";
 // Helper component for Hero Animations (since we can't use motion directly in a server component for the whole page)
 import ClientAnimationsWrapper from "@/components/ClientAnimationsWrapper";
 
-const placeholderProjects = [
-  {
-    _id: "p1",
-    title: "YASALAM",
-    year: "2025",
-    category: "EVENT COVERAGE",
-    image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1400&auto=format&fit=crop",
-    aspectRatio: "aspect-[4/5]",
-  },
-  {
-    _id: "p2",
-    title: "F1 GRAND PRIX",
-    year: "2025",
-    category: "LIVE COVERAGE",
-    image: "https://images.unsplash.com/photo-1541133569702-f9d99b281b14?q=80&w=1400&auto=format&fit=crop",
-    aspectRatio: "aspect-square",
-  },
-  {
-    _id: "p3",
-    title: "GAMES OF THE FUTURE",
-    year: "2025",
-    category: "DOCUMENTARY",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1400&auto=format&fit=crop",
-    aspectRatio: "aspect-[4/5]",
-  },
-  {
-    _id: "p4",
-    title: "MOTHER OF THE NATION",
-    year: "2025",
-    category: "BRANDED CONTENT",
-    image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1400&auto=format&fit=crop",
-    aspectRatio: "aspect-square",
-  },
-  {
-    _id: "p5",
-    title: "TVC CAMPAIGN",
-    year: "2025",
-    category: "COMMERCIAL",
-    image: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=1400&auto=format&fit=crop",
-    aspectRatio: "aspect-[4/5]",
-  },
-  {
-    _id: "p6",
-    title: "MOTN FESTIVAL",
-    year: "2025",
-    category: "EVENT COVERAGE",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1400&auto=format&fit=crop",
-    aspectRatio: "aspect-square",
-  }
-];
-
 export default async function ProjectsPage() {
   let projects = [];
   try {
@@ -63,8 +12,8 @@ export default async function ProjectsPage() {
     console.error("Error fetching project data:", error);
   }
 
-  const rawProjects = projects?.length ? projects : placeholderProjects;
-  
+  // If no projects found, we show an empty list or a message
+  const rawProjects = projects || [];
 
   return (
     <div className="bg-black text-white selection:bg-white selection:text-black min-h-screen relative overflow-hidden">
@@ -91,19 +40,22 @@ export default async function ProjectsPage() {
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10vw] font-normal tracking-tighter uppercase leading-[0.85]">
               FEATURED<br />PROJECTS
             </h1>
-            <div className="mt-8 text-xl font-mono text-red-500 uppercase tracking-widest">
-              System Update: Backend Live V2
-            </div>
-            <div className="mt-4 text-3xl md:text-4xl font-light opacity-50">+</div>
+            <div className="mt-8 text-3xl md:text-4xl font-light opacity-50">+</div>
           </div>
         </ClientAnimationsWrapper>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-20 md:gap-y-32 items-start">
-          {rawProjects.map((project: any, idx: number) => (
-            <ProjectCard key={project._id || idx} project={project} index={idx} />
-          ))}
-        </div>
+        {rawProjects.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-20 md:gap-y-32 items-start">
+            {rawProjects.map((project: any, idx: number) => (
+              <ProjectCard key={project._id || idx} project={project} index={idx} />
+            ))}
+          </div>
+        ) : (
+          <div className="py-20 text-center opacity-50 italic">
+            No projects found in the backend. Please ensure they are published in Sanity.
+          </div>
+        )}
       </div>
     </div>
   );
