@@ -57,5 +57,6 @@ export async function getProjectsData() {
     ...,
     "imageUrl": image.asset->url
   }`;
-  return client.fetch(query, {}, { next: { revalidate: 0 } });
+  const data = await client.fetch(query, {}, { next: { revalidate: 0 } });
+  return data;
 }

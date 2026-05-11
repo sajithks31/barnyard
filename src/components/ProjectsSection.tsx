@@ -43,7 +43,7 @@ export default function ProjectsSection({ data }: ProjectProps) {
   const displayProjects = data && data.length > 0 
     ? data.map((p, i) => ({
         ...p,
-        img: p.image?.asset ? urlFor(p.image).url() : (typeof p.image === 'string' ? p.image : placeholderProjects[i % 4].img),
+        img: p.image?.asset ? urlFor(p.image).url() : (typeof p.image === 'string' ? p.image : (typeof p.imageUrl === 'string' ? p.imageUrl : placeholderProjects[i % 4].img)),
         title: p.title + (p.year ? ` • ${p.year}` : ""),
         style: placeholderProjects[i % 4].style,
         aspect: placeholderProjects[i % 4].aspect
