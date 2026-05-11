@@ -51,3 +51,11 @@ export async function getServicesData() {
   }`;
   return client.fetch(query, {}, { next: { revalidate: 0 } });
 }
+
+export async function getProjectsData() {
+  const query = groq`*[_type == "project"] | order(order asc) {
+    ...,
+    "imageUrl": image.asset->url
+  }`;
+  return client.fetch(query, {}, { next: { revalidate: 0 } });
+}

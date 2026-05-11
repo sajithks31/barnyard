@@ -1,4 +1,4 @@
-import { getHomepageData } from "@/sanity/queries";
+import { getProjectsData } from "@/sanity/queries";
 import ProjectCard from "@/components/ProjectCard";
 
 // Helper component for Hero Animations (since we can't use motion directly in a server component for the whole page)
@@ -56,14 +56,14 @@ const placeholderProjects = [
 ];
 
 export default async function ProjectsPage() {
-  let data;
+  let projects = [];
   try {
-    data = await getHomepageData();
+    projects = await getProjectsData();
   } catch (error) {
     console.error("Error fetching project data:", error);
   }
 
-  const rawProjects = data?.projects?.length ? data.projects : placeholderProjects;
+  const rawProjects = projects?.length ? projects : placeholderProjects;
   
 
   return (
