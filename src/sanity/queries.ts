@@ -11,9 +11,18 @@ export const homepageQuery = groq`{
     ...,
     "logoUrl": logo.asset->url
   },
-  "services": *[_type == "service"] | order(order asc),
-  "projects": *[_type == "project"] | order(order asc),
-  "tools": *[_type == "tool"] | order(order asc),
+  "services": *[_type == "service"] | order(order asc) {
+    ...,
+    "imageUrl": image.asset->url
+  },
+  "projects": *[_type == "project"] | order(order asc) {
+    ...,
+    "imageUrl": image.asset->url
+  },
+  "tools": *[_type == "tool"] | order(order asc) {
+    ...,
+    "imageUrl": image.asset->url
+  },
   "aboutPage": *[_type == "aboutPage"][0] {
     ...,
     "marqueeImageUrls": marqueeImages[].asset->url,
@@ -31,6 +40,14 @@ export async function getAboutPageData() {
     ...,
     "marqueeImageUrls": marqueeImages[].asset->url,
     "bannerVideoUrl": bannerVideo.asset->url
+  }`;
+  return client.fetch(query, {}, { next: { revalidate: 30 } });
+}
+
+export async function getServicesData() {
+  const query = groq`*[_type == "service"] | order(order asc) {
+    ...,
+    "imageUrl": image.asset->url
   }`;
   return client.fetch(query, {}, { next: { revalidate: 30 } });
 }

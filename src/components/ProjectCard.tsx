@@ -27,7 +27,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     >
       <div className={`relative ${aspectClass} overflow-hidden bg-[#111] ring-1 ring-white/5 mx-auto w-full max-w-full`}>
         <img 
-          src={project.image || "https://images.unsplash.com/photo-1574719266848-692ab8d0ca28?q=80&w=1000&auto=format&fit=crop"} 
+          src={project.imageUrl || (project.image && typeof project.image !== 'string' ? urlFor(project.image).url() : project.image) || "https://images.unsplash.com/photo-1574719266848-692ab8d0ca28?q=80&w=1000&auto=format&fit=crop"} 
           alt={project.title}
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"

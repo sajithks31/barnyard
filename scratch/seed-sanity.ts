@@ -9,7 +9,7 @@ const client = createClient({
   dataset: "production",
   apiVersion: "2024-01-01",
   useCdn: false,
-  // Note: 'sanity exec' provides the token automatically when run with --with-user-token
+  token: process.env.SANITY_API_TOKEN,
 });
 
 async function seed() {
