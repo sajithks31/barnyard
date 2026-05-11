@@ -49,10 +49,18 @@ export default defineConfig({
                   .schemaType('aboutPage')
                   .documentId('aboutPage')
               ),
+            S.listItem()
+              .title('Services Page Settings')
+              .id('servicesPage')
+              .child(
+                S.document()
+                  .schemaType('servicesPage')
+                  .documentId('servicesPage')
+              ),
             S.divider(),
             // Regular document types
             ...S.documentTypeListItems().filter(
-              (item) => !['homepage', 'navigation', 'contactInfo', 'aboutPage'].includes(item.getId()!)
+              (item) => !['homepage', 'navigation', 'contactInfo', 'aboutPage', 'servicesPage'].includes(item.getId()!)
             ),
           ]),
     }),
