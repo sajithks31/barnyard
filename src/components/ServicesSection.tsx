@@ -84,7 +84,9 @@ const ServiceCard = ({
           className="flex-1 flex flex-col justify-between order-1 md:order-1 h-full"
         >
           <div>
-            <div className="text-2xl md:text-3xl font-extralight mb-6 md:mb-10 opacity-30">+</div>
+            <div className="mb-6 md:mb-10">
+              <img src="/overlapping-circles.svg" alt="icon" className="w-10 md:w-12 h-auto opacity-100" />
+            </div>
             <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-normal tracking-tighter uppercase mb-4 leading-[0.85] pr-4 md:pr-12">
               {service.title.split(' ').map((word: string, i: number) => (
                 <span key={i} className="block">{word}</span>
