@@ -77,7 +77,7 @@ const ServiceCard = ({
           zIndex: (idx + 1) * 10,
           top: `calc(8% + ${idx * 28}px)`
         }}
-        className="relative bg-[#FAFAFA] text-black rounded-[32px] md:rounded-[48px] p-5 md:p-10 flex flex-col md:flex-row gap-8 md:gap-12 hover:bg-white transition-all duration-500 group w-full max-w-[1200px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
+        className="relative bg-[#FAFAFA] text-black rounded-[32px] md:rounded-[48px] p-5 md:p-10 flex flex-col md:flex-row gap-8 md:gap-12 hover:bg-white transition-all duration-500 group w-full max-w-[1400px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
       >
         <motion.div 
           style={{ opacity: contentOpacity }}
@@ -141,7 +141,7 @@ export default function ServicesSection({ data }: ServiceProps) {
 
   return (
     <section ref={container} className="bg-background relative z-10" id="services">
-      <div className="max-w-[1440px] px-6 md:px-12 lg:px-24 mx-auto pt-20 pb-60 lg:pt-28 lg:pb-[40vh]">
+      <div className="max-w-[1600px] px-6 md:px-12 lg:px-24 mx-auto pt-20 pb-60 lg:pt-28 lg:pb-[40vh]">
         <div className="mb-16 md:mb-24 flex flex-col items-start text-left">
           <motion.span 
             initial={{ opacity: 0, x: -20 }}

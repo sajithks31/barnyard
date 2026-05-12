@@ -30,7 +30,7 @@ export default function ContactSection({ contactInfo = {} }: ContactSectionProps
         </video>
       </div>
       
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24 relative z-10 flex flex-col lg:flex-row justify-between lg:items-stretch gap-16 lg:gap-8">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 relative z-10 flex flex-col lg:flex-row justify-between lg:items-stretch gap-16 lg:gap-8">
         {/* Left Side: Headline and Details */}
         <div className="w-full lg:w-[40%] text-left flex flex-col">
           <div className="mb-10 lg:mb-12">
