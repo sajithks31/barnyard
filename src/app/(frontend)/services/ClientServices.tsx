@@ -83,7 +83,7 @@ export default function ClientServices({ data }: any) {
               <div className="flex-1 flex flex-col justify-between">
                 <div>
                   <div className="mb-8 md:mb-10">
-                    <img src="/overlapping-circles.png" alt="service icon" className="w-12 md:w-14 h-auto opacity-100" />
+                    <img src="/overlapping-circles.svg" alt="service icon" className="w-14 md:w-16 h-auto opacity-100" />
                   </div>
                   
                   <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter uppercase mb-6 leading-[0.9] text-black">
