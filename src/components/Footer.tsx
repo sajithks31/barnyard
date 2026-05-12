@@ -28,7 +28,7 @@ export default function Footer({ navLinks, footerNavLinks, contactInfo }: Footer
 
   return (
     <footer className="bg-white text-black pt-12 pb-8 px-6 md:px-16 lg:px-24 rounded-t-[30px] w-full relative z-10 mt-[-30px]">
-      <div className="max-w-[1800px] 2xl:max-w-[2000px] mx-auto">
+      <div className="max-w-[1800px] xl:max-w-[2200px] 2xl:max-w-[2400px] mx-auto">
         {/* Top of footer */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-10">
           <img 

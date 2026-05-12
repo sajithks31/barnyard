@@ -52,7 +52,7 @@ export default function Navbar({ data }: NavbarProps) {
         transition={{ delay: 1.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         className="absolute top-0 left-0 w-full z-[100] pointer-events-none"
       >
-        <div className="w-full max-w-[1800px] 2xl:max-w-[2000px] mx-auto px-6 md:px-16 lg:px-24 py-6 md:py-8 flex items-center justify-between pointer-events-auto">
+        <div className="w-full max-w-[1800px] xl:max-w-[2200px] 2xl:max-w-[2400px] mx-auto px-6 md:px-16 lg:px-24 py-6 md:py-8 flex items-center justify-between pointer-events-auto">
           {/* Left: Logo Section */}
           <Link href="/" className="flex items-center group pointer-events-auto">
             <img 
