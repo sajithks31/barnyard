@@ -19,10 +19,6 @@ export const homepageQuery = groq`{
     ...,
     "imageUrl": image.asset->url
   },
-  "tools": *[_type == "tool"] | order(order asc) {
-    ...,
-    "imageUrl": image.asset->url
-  },
   "aboutPage": *[_type == "aboutPage"][0] {
     ...,
     "marqueeImageUrls": marqueeImages[].asset->url,
