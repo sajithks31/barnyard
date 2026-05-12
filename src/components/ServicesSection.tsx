@@ -77,7 +77,7 @@ const ServiceCard = ({
           zIndex: (idx + 1) * 10,
           top: `calc(8% + ${idx * 28}px)`
         }}
-        className="relative bg-[#FAFAFA] text-black rounded-[32px] md:rounded-[48px] p-5 md:p-10 lg:p-16 2xl:p-24 flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-20 hover:bg-white transition-all duration-500 group w-full max-w-[1600px] xl:max-w-[1800px] 2xl:max-w-[2200px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
+        className="relative bg-[#FAFAFA] text-black rounded-[32px] md:rounded-[48px] p-5 md:p-10 lg:p-16 2xl:p-32 flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-20 hover:bg-white transition-all duration-500 group w-full max-w-[1600px] xl:max-w-[2000px] 2xl:max-w-[2600px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
       >
         <motion.div 
           style={{ opacity: contentOpacity }}
@@ -87,12 +87,12 @@ const ServiceCard = ({
             <div className="mb-6 md:mb-10">
               <img src="/overlapping-circles.svg" alt="icon" className="w-10 md:w-12 h-auto opacity-100" />
             </div>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[80px] 2xl:text-[100px] font-normal tracking-tighter uppercase mb-4 leading-[0.85] pr-4 md:pr-12">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[90px] 2xl:text-[130px] font-bold tracking-tighter uppercase mb-4 leading-[0.8] pr-4 md:pr-12">
               {service.title.split(' ').map((word: string, i: number) => (
                 <span key={i} className="block">{word}</span>
               ))}
             </h3>
-            <p className="text-[12px] md:text-[14px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px] font-normal opacity-60 max-w-full md:max-w-[90%] leading-[1.6] mb-6 md:mb-8">
+            <p className="text-[12px] md:text-[14px] lg:text-[16px] xl:text-[22px] 2xl:text-[32px] font-normal opacity-60 max-w-full md:max-w-[90%] leading-[1.5] mb-6 md:mb-8">
               {service.description || service.desc}
             </p>
             
@@ -141,7 +141,7 @@ export default function ServicesSection({ data }: ServiceProps) {
 
   return (
     <section ref={container} className="bg-background relative z-10" id="services">
-      <div className="max-w-[1800px] xl:max-w-[2200px] 2xl:max-w-[2400px] px-6 md:px-12 lg:px-24 mx-auto pt-16 pb-32 lg:pt-20 lg:pb-[20vh]">
+      <div className="max-w-[1800px] xl:max-w-[2400px] 2xl:max-w-[2800px] px-6 md:px-12 lg:px-24 mx-auto pt-16 pb-32 lg:pt-20 lg:pb-[20vh]">
         <div className="mb-16 md:mb-24 flex flex-col items-start text-left">
           <motion.span 
             initial={{ opacity: 0, x: -20 }}
