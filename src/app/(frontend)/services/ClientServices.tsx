@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Plus } from "lucide-react";
+
 import React from "react";
 import { urlFor } from "@/sanity/client";
 
@@ -78,21 +78,21 @@ export default function ClientServices({ data }: any) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="bg-white text-black rounded-[32px] md:rounded-[40px] p-8 md:p-14 lg:p-20 flex flex-col lg:flex-row gap-12 lg:gap-16 group hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-all duration-500"
+              className="bg-white text-black rounded-[24px] md:rounded-[32px] p-6 md:p-12 lg:p-14 flex flex-col lg:flex-row gap-10 lg:gap-14 group hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500"
             >
               <div className="flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="mb-8 md:mb-12">
-                     <Plus className="w-6 h-6 md:w-8 md:h-8 opacity-40" />
+                  <div className="mb-8 md:mb-10">
+                    <img src="/overlapping-circles.png" alt="service icon" className="w-12 md:w-14 h-auto opacity-100" />
                   </div>
                   
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter uppercase mb-6 leading-[0.9]">
+                  <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter uppercase mb-6 leading-[0.9] text-black">
                     {service.title.split(' ').map((word: string, i: number) => (
                       <span key={i} className="block">{word}</span>
                     ))}
                   </h2>
                   
-                  <p className="text-[14px] md:text-[16px] lg:text-[18px] font-light opacity-80 max-w-xl leading-relaxed mb-10 md:mb-16">
+                  <p className="text-[13px] md:text-[15px] lg:text-[16px] font-normal text-black/70 max-w-xl leading-relaxed mb-10 md:mb-14">
                     {service.description || service.desc}
                   </p>
                 </div>
@@ -101,7 +101,7 @@ export default function ClientServices({ data }: any) {
                   {(service.tags || []).map((pill: string, pIdx: number) => (
                     <span 
                       key={pIdx}
-                      className="rounded-full border border-black/20 px-4 md:px-6 py-2 text-[9px] md:text-[11px] font-bold tracking-[0.2em] uppercase text-black"
+                      className="rounded-full border border-black/10 px-4 md:px-5 py-1.5 text-[8px] md:text-[9px] font-bold tracking-[0.15em] uppercase text-black/60"
                     >
                       {pill}
                     </span>
@@ -109,7 +109,7 @@ export default function ClientServices({ data }: any) {
                 </div>
               </div>
               
-              <div className="w-full lg:w-[45%] lg:max-w-[500px] h-[300px] md:h-[400px] lg:h-auto overflow-hidden rounded-[24px] md:rounded-[32px] bg-black/5 mt-auto mb-auto aspect-[4/3] lg:aspect-auto flex-shrink-0">
+              <div className="w-full lg:w-[48%] h-[300px] md:h-[400px] lg:h-auto overflow-hidden rounded-[16px] md:rounded-[24px] bg-black/5 mt-auto mb-auto aspect-[16/10] lg:aspect-auto flex-shrink-0">
                 <img 
                   src={service.image?.asset ? urlFor(service.image).width(800).url() : (typeof service.image === 'string' ? service.image : service.img)} 
                   alt={service.title} 
