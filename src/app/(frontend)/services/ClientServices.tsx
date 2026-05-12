@@ -61,8 +61,10 @@ export default function ClientServices({ data }: any) {
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-6"
           >
-             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9.5vw] font-bold tracking-tighter uppercase leading-[0.85]">
-               {pageSettings?.title || "FROM CONCEPT TO FINAL FRAME"}
+             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9.5vw] font-bold tracking-tighter uppercase leading-[0.85] flex flex-col">
+               <span>FROM</span>
+               <span>CONCEPT TO</span>
+               <span>FINAL FRAME</span>
              </h1>
           </motion.div>
         </div>
