@@ -16,7 +16,7 @@ export default function ContactSection({ contactInfo = {} }: ContactSectionProps
   const contact = contactInfo;
   
   return (
-    <section className="py-32 lg:py-40 relative overflow-hidden" id="contact">
+    <section className="py-20 lg:py-28 relative overflow-hidden" id="contact">
       {/* Colorful Gradient Background matching Figma */}
       <div className="absolute inset-0 z-0">
         <video 

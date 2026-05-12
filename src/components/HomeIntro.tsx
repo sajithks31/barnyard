@@ -37,7 +37,7 @@ export default function HomeIntro({ data }: HomeIntroProps) {
   };
 
   return (
-    <section className="py-24 md:py-32 lg:py-40 border-t border-white/10 bg-black relative z-10 text-center" id="about-us">
+    <section className="py-20 md:py-24 lg:py-28 border-t border-white/10 bg-black relative z-10 text-center" id="about-us">
       <motion.div
         variants={container}
         initial="hidden"
