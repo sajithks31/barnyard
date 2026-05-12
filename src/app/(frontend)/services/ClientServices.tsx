@@ -54,14 +54,14 @@ export default function ClientServices({ data }: any) {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-[120%] bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.1)_0%,_transparent_60%)]" />
         </div>
         
-        <div className="max-w-[1600px] mx-auto relative z-10">
+        <div className="max-w-[1800px] 2xl:max-w-[2000px] mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-6"
           >
-             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9.5vw] font-bold tracking-tighter uppercase leading-[0.85] flex flex-col">
+             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9.5vw] 2xl:text-[140px] font-bold tracking-tighter uppercase leading-[0.85] flex flex-col">
                <span>FROM</span>
                <span>CONCEPT TO</span>
                <span>FINAL FRAME</span>
@@ -72,7 +72,7 @@ export default function ClientServices({ data }: any) {
 
       {/* Services List Section */}
       <section className="px-6 md:px-12 lg:px-24 pb-20 md:pb-24 lg:pb-28">
-        <div className="max-w-[1600px] mx-auto flex flex-col gap-6 md:gap-8">
+        <div className="max-w-[1800px] 2xl:max-w-[2000px] mx-auto flex flex-col gap-6 md:gap-8">
           {displayServices.map((service: any, idx: number) => (
             <motion.div 
               key={idx}
