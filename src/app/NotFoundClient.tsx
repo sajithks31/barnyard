@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function NotFoundClient() {
   return (
-    <div className="flex flex-col items-center justify-center w-full px-6 py-20 relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center w-full px-6 pt-48 md:pt-64 pb-20 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className="relative w-full max-w-[1200px] aspect-video opacity-80">
