@@ -74,13 +74,13 @@ export default function NotFoundClient() {
             PAGE <span className="italic font-light opacity-60">NOT</span> FOUND
           </h1>
 
-          <Link href="/">
+          <Link href="/contact">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-3 group backdrop-blur-md"
             >
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase">GO BACK HOME</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase">CONTACT US</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </motion.button>
           </Link>
