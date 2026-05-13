@@ -49,8 +49,8 @@ export const homepage = defineType({
         },
       ],
       initialValue: [
-        { label: "OUR SERVICES", url: "#services" },
-        { label: "OUR WORK", url: "/projects" },
+        { _key: "button1", label: "OUR SERVICES", url: "#services" },
+        { _key: "button2", label: "OUR WORK", url: "/projects" },
       ],
     }),
     defineField({
