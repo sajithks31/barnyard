@@ -20,9 +20,10 @@ export const aboutPage = defineType({
     }),
     defineField({
       name: "marqueeImages",
-      title: "Marquee Images",
+      title: "Slider / Marquee Images",
       type: "array",
       of: [{ type: "image", options: { hotspot: true } }],
+      description: "The scrolling images in the middle of the About page hero section.",
     }),
     defineField({
       name: "bannerHeadline",
