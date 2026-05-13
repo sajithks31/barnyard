@@ -6,5 +6,6 @@ import { contactInfo } from "./contactInfo";
 import { tool } from "./tool";
 import { aboutPage } from "./aboutPage";
 import { servicesPage } from "./servicesPage";
+import { projectsPage } from "./projectsPage";
 
-export const schemaTypes = [project, service, homepage, navigation, contactInfo, tool, aboutPage, servicesPage];
+export const schemaTypes = [project, service, homepage, navigation, contactInfo, tool, aboutPage, servicesPage, projectsPage];

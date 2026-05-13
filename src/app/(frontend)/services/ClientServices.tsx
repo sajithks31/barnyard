@@ -62,9 +62,9 @@ export default function ClientServices({ data }: any) {
             className="flex flex-col gap-6"
           >
              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9.5vw] xl:text-[180px] 2xl:text-[220px] font-medium tracking-tighter uppercase leading-[0.85] flex flex-col">
-               <span>FROM</span>
-               <span>CONCEPT TO</span>
-               <span>FINAL FRAME</span>
+               {(pageSettings?.heroTitle || ["FROM", "CONCEPT TO", "FINAL FRAME"]).map((line: string, i: number) => (
+                 <span key={i}>{line}</span>
+               ))}
              </h1>
           </motion.div>
         </div>

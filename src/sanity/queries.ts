@@ -55,6 +55,9 @@ export async function getServicesData() {
 }
 
 export async function getProjectsData() {
-  const query = groq`*[_type == "project"] | order(order asc)`;
+  const query = groq`{
+    "pageSettings": *[_type == "projectsPage"][0],
+    "projects": *[_type == "project"] | order(order asc)
+  }`;
   return client.fetch(query, {}, { next: { revalidate: 0 } });
 }

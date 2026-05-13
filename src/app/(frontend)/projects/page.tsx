@@ -5,15 +5,15 @@ import ProjectCard from "@/components/ProjectCard";
 import ClientAnimationsWrapper from "@/components/ClientAnimationsWrapper";
 
 export default async function ProjectsPage() {
-  let projects = [];
+  let data: any = null;
   try {
-    projects = await getProjectsData();
+    data = await getProjectsData();
   } catch (error) {
     console.error("Error fetching project data:", error);
   }
 
-  // If no projects found, we show an empty list or a message
-  const rawProjects = projects || [];
+  const rawProjects = data?.projects || [];
+  const pageSettings = data?.pageSettings;
 
   return (
     <div className="bg-black text-white selection:bg-white selection:text-black min-h-screen relative overflow-hidden">
@@ -38,7 +38,9 @@ export default async function ProjectsPage() {
         <ClientAnimationsWrapper>
           <div className="mb-28">
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10vw] font-medium tracking-tighter uppercase leading-[0.85]">
-              FEATURED<br />PROJECTS
+              {(pageSettings?.heroTitle || ["FEATURED", "PROJECTS"]).map((line: string, i: number) => (
+                <span key={i} className="block">{line}</span>
+              ))}
             </h1>
             <div className="mt-12 opacity-80">
               <img src="/overlapping-circles.svg" alt="icon" className="w-16 md:w-20 h-auto invert" />

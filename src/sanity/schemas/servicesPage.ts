@@ -6,16 +6,13 @@ export const servicesPage = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "title",
-      title: "Hero Title",
-      type: "string",
-      description: "The main big heading (e.g. FROM CONCEPT TO FINAL FRAME)",
-    }),
-    defineField({
-      name: "subtitle",
-      title: "Hero Subtitle",
-      type: "string",
-      description: "Optional smaller text above or below the title",
+      name: "heroTitle",
+      title: "Hero Title Lines",
+      type: "array",
+      of: [{ type: "string" }],
+      initialValue: ["FROM", "CONCEPT TO", "FINAL FRAME"],
+      placeholder: ["FROM", "CONCEPT TO", "FINAL FRAME"],
+      description: "The main big heading words",
     }),
   ],
 });
