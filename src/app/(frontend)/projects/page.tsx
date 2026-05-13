@@ -40,7 +40,9 @@ export default async function ProjectsPage() {
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10vw] font-normal tracking-tighter uppercase leading-[0.85]">
               FEATURED<br />PROJECTS
             </h1>
-            <div className="mt-8 text-3xl md:text-4xl font-light opacity-50">+</div>
+            <div className="mt-12 opacity-80">
+              <img src="/overlapping-circles.svg" alt="icon" className="w-16 md:w-20 h-auto invert" />
+            </div>
           </div>
         </ClientAnimationsWrapper>
 
