@@ -89,7 +89,7 @@ export default function ClientAbout({ data }: AboutPageProps) {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start text-left gap-12 w-full"
           >
-            <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[10vw] font-bold tracking-tighter uppercase leading-[0.8] mb-12">
+            <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[10vw] font-medium tracking-tighter uppercase leading-[0.8] mb-12">
               {heroTitle.map((line: string, i: number) => (
                 <span key={i} className="block">{line}</span>
               ))}

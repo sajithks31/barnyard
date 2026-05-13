@@ -61,7 +61,7 @@ export default function ClientServices({ data }: any) {
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-6"
           >
-             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9.5vw] xl:text-[180px] 2xl:text-[220px] font-bold tracking-tighter uppercase leading-[0.85] flex flex-col">
+             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9.5vw] xl:text-[180px] 2xl:text-[220px] font-medium tracking-tighter uppercase leading-[0.85] flex flex-col">
                <span>FROM</span>
                <span>CONCEPT TO</span>
                <span>FINAL FRAME</span>

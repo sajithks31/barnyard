@@ -79,7 +79,7 @@ export default function Hero({ data }: HeroProps) {
             className="w-full max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 pointer-events-auto"
           >
             <motion.h1 
-              className="text-5xl sm:text-7xl md:text-[8.5vw] lg:text-[7.5vw] font-normal tracking-tighter leading-[1] mb-12 uppercase flex flex-col gap-1 md:gap-2 text-white"
+              className="text-5xl sm:text-7xl md:text-[8.5vw] lg:text-[7.5vw] font-medium tracking-tighter leading-[1] mb-12 uppercase flex flex-col gap-1 md:gap-2 text-white"
             >
               {titleLines.map((line, idx) => (
                 <motion.span 

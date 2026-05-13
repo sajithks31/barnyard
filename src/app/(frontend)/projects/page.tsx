@@ -37,7 +37,7 @@ export default async function ProjectsPage() {
         {/* Hero Section */}
         <ClientAnimationsWrapper>
           <div className="mb-28">
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10vw] font-normal tracking-tighter uppercase leading-[0.85]">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10vw] font-medium tracking-tighter uppercase leading-[0.85]">
               FEATURED<br />PROJECTS
             </h1>
             <div className="mt-12 opacity-80">

@@ -38,7 +38,7 @@ export default function ContactPage() {
             className="flex flex-col justify-between h-full"
           >
             <div>
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10vw] font-normal tracking-tighter uppercase leading-[0.85] mb-8">
+              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10vw] font-medium tracking-tighter uppercase leading-[0.85] mb-8">
                 LET'S<br />CONNECT
               </h1>
               <div className="text-4xl md:text-5xl font-light opacity-50 mb-12">+</div>
