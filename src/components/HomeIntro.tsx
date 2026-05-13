@@ -2,18 +2,42 @@
 
 import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { PortableText } from "@portabletext/react";
 
 interface HomeIntroProps {
   data?: {
     introHeadline?: string;
-    introParagraph?: string;
+    introParagraph?: any;
     introButtonLabel?: string;
     introButtonUrl?: string;
+    introHeadlineTag?: string;
   };
 }
 
+const components = {
+  marks: {
+    link: ({ children, value }: any) => {
+      const rel = !value.href.startsWith("/") ? "noreferrer noopener" : undefined;
+      return (
+        <a href={value.href} rel={rel} className="text-white underline underline-offset-4 hover:opacity-70 transition-opacity">
+          {children}
+        </a>
+      );
+    },
+    internalLink: ({ children, value }: any) => {
+      const href = value.type === "homepage" ? "/" : `/${value.type === "project" ? "projects" : value.type}/${value.slug || ""}`;
+      return (
+        <a href={href} className="text-white underline underline-offset-4 hover:opacity-70 transition-opacity">
+          {children}
+        </a>
+      );
+    },
+  },
+};
+
 export default function HomeIntro({ data }: HomeIntroProps) {
   const headline = data?.introHeadline || "POWERING BRANDS WITH\nCREATIVE THINKING &\nSEAMLESS EXECUTION";
+  const HeadlineTag = (data?.introHeadlineTag || "h2") as keyof JSX.IntrinsicElements;
   const paragraph = data?.introParagraph || "Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands. From first idea to final frame, we combine creative thinking with seamless execution—bringing stories to life in ways that feel authentic, impactful, and impossible to ignore.";
 
   const container: Variants = {
@@ -52,13 +76,19 @@ export default function HomeIntro({ data }: HomeIntroProps) {
             ABOUT US
           </motion.span>
           
-          <motion.h2 variants={item} className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[90px] 2xl:text-[120px] font-medium tracking-tighter leading-[1.0] mb-10 md:mb-14 uppercase whitespace-pre-wrap">
-            {headline}
-          </motion.h2>
+          <motion.div variants={item}>
+            <HeadlineTag className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[90px] 2xl:text-[120px] font-medium tracking-tighter leading-[1.0] mb-10 md:mb-14 uppercase whitespace-pre-wrap">
+              {headline}
+            </HeadlineTag>
+          </motion.div>
           
-          <motion.p variants={item} className="text-sm md:text-base lg:text-lg text-white/60 mb-12 max-w-[900px] font-normal leading-relaxed">
-            {paragraph}
-          </motion.p>
+          <motion.div variants={item} className="text-sm md:text-base lg:text-lg text-white/60 mb-12 max-w-[900px] font-normal leading-relaxed">
+            {Array.isArray(data?.introParagraph) ? (
+              <PortableText value={data.introParagraph} components={components} />
+            ) : (
+              <p>{paragraph}</p>
+            )}
+          </motion.div>
           
           <motion.div variants={item}>
             <a href={data?.introButtonUrl || "/about"}>

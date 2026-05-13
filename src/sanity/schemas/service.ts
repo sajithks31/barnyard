@@ -28,11 +28,24 @@ export const service = defineType({
       title: "Image",
       type: "image",
       options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative Text",
+          description: "Important for SEO and accessibility.",
+        },
+      ],
     }),
     defineField({
       name: "order",
       title: "Order",
       type: "number",
+    }),
+    defineField({
+      name: "seo",
+      title: "SEO",
+      type: "seo",
     }),
   ],
 });

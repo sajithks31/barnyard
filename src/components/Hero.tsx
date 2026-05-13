@@ -14,12 +14,15 @@ interface HeroProps {
     heroDesktopImage?: string;
     heroMobileUrl?: string;
     heroMobileImage?: string;
+    heroTitleTag?: string;
   };
 }
 
 export default function Hero({ data }: HeroProps) {
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
+  
+  const TitleTag = (data?.heroTitleTag || "h1") as keyof JSX.IntrinsicElements;
   
   const titleLines = data?.heroTitleLines?.length ? data.heroTitleLines : ['CREATING', 'STORIES+', 'THAT MOVE'];
   const buttons = data?.heroButtons?.length ? data.heroButtons : [
@@ -143,7 +146,7 @@ export default function Hero({ data }: HeroProps) {
             animate="show"
             className="w-full max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 pointer-events-auto"
           >
-            <motion.h1 
+            <TitleTag 
               className="text-5xl sm:text-7xl md:text-[8.5vw] lg:text-[7.5vw] font-medium tracking-tighter leading-[1] mb-12 uppercase flex flex-col gap-1 md:gap-2 text-white"
             >
               {titleLines.map((line, idx) => (
@@ -155,7 +158,7 @@ export default function Hero({ data }: HeroProps) {
                   {line}
                 </motion.span>
               ))}
-            </motion.h1>
+            </TitleTag>
             
             <motion.div 
               variants={item}

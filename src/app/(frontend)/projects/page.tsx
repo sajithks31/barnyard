@@ -1,8 +1,31 @@
-import { getProjectsData } from "@/sanity/queries";
+import { getProjectsData, getHomepageData } from "@/sanity/queries";
 import ProjectCard from "@/components/ProjectCard";
-
-// Helper component for Hero Animations (since we can't use motion directly in a server component for the whole page)
 import ClientAnimationsWrapper from "@/components/ClientAnimationsWrapper";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getProjectsData();
+  const homepageData = await getHomepageData();
+  const seo = data?.pageSettings?.seo;
+  const siteSettings = homepageData?.siteSettings;
+
+  const title = seo?.title || "Our Projects | Barnyard Productions";
+  const description = seo?.description || "A selection of our latest film, photography, and creative production work.";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: seo?.canonical || (siteSettings?.baseUrl ? `${siteSettings.baseUrl}/projects` : undefined),
+    },
+    openGraph: {
+      title,
+      description,
+      images: seo?.ogImageUrl ? [{ url: seo.ogImageUrl }] : [],
+    },
+    robots: seo?.noIndex ? "noindex, nofollow" : "index, follow",
+  };
+}
 
 export default async function ProjectsPage() {
   let data: any = null;

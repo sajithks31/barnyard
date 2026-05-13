@@ -12,6 +12,7 @@ interface ServiceProps {
   settings?: {
     servicesSectionBadge?: string;
     servicesSectionTitle?: string[];
+    servicesSectionTitleTag?: string;
   };
 }
 
@@ -140,6 +141,8 @@ export default function ServicesSection({ data, settings }: ServiceProps) {
     offset: ['start start', 'end end']
   });
 
+  const TitleTag = (settings?.servicesSectionTitleTag || "h2") as keyof JSX.IntrinsicElements;
+
   return (
     <section ref={container} className="bg-background relative z-10" id="services">
       <div className="max-w-[1800px] xl:max-w-[2400px] 2xl:max-w-[2800px] px-6 md:px-12 lg:px-24 mx-auto pt-0 pb-32 lg:pb-[20vh]">
@@ -152,17 +155,18 @@ export default function ServicesSection({ data, settings }: ServiceProps) {
           >
             {settings?.servicesSectionBadge || "OUR SERVICES"}
           </motion.span>
-          <motion.h2 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-[100px] font-medium tracking-tighter leading-[0.9] uppercase text-white"
           >
-            {(settings?.servicesSectionTitle || ["FROM CONCEPT", "TO FINAL FRAME"]).map((line, i) => (
-              <span key={i} className="block text-white">{line}</span>
-            ))}
-          </motion.h2>
+            <TitleTag className="text-6xl sm:text-7xl md:text-8xl lg:text-[100px] font-medium tracking-tighter leading-[0.9] uppercase text-white">
+              {(settings?.servicesSectionTitle || ["FROM CONCEPT", "TO FINAL FRAME"]).map((line, i) => (
+                <span key={i} className="block text-white">{line}</span>
+              ))}
+            </TitleTag>
+          </motion.div>
         </div>
 
         <div className="relative">

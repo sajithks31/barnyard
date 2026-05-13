@@ -13,5 +13,10 @@ export const projectsPage = defineType({
       initialValue: ["FEATURED", "PROJECTS"],
       description: "The main big heading words for the projects page",
     }),
+    defineField({
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+    }),
   ],
 });

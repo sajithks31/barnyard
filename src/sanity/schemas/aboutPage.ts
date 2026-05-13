@@ -22,7 +22,20 @@ export const aboutPage = defineType({
       name: "marqueeImages",
       title: "Slider / Marquee Images",
       type: "array",
-      of: [{ type: "image", options: { hotspot: true } }],
+      of: [
+        { 
+          type: "image", 
+          options: { hotspot: true },
+          fields: [
+            {
+              name: "alt",
+              type: "string",
+              title: "Alternative Text",
+              description: "Important for SEO and accessibility.",
+            },
+          ],
+        }
+      ],
       description: "The scrolling images in the middle of the About page hero section.",
     }),
     defineField({
@@ -78,6 +91,11 @@ export const aboutPage = defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: "seo",
+      title: "SEO",
+      type: "seo",
     }),
   ],
 });

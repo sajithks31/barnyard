@@ -7,8 +7,23 @@ export const homepageQuery = groq`{
     "heroDesktopUrl": heroDesktop.video.asset->url,
     "heroDesktopImage": heroDesktop.image.asset->url,
     "heroMobileUrl": heroMobile.video.asset->url,
-    "heroMobileImage": heroMobile.image.asset->url
+    "heroMobileImage": heroMobile.image.asset->url,
+    "seo": seo {
+      ...,
+      "ogImageUrl": ogImage.asset->url
+    },
+    introParagraph[] {
+      ...,
+      markDefs[] {
+        ...,
+        _type == "internalLink" => {
+          "slug": @.reference->slug.current,
+          "type": @.reference->_type
+        }
+      }
+    }
   },
+  "siteSettings": *[_type == "siteSettings"][0],
   "navigation": *[_type == "navigation"][0],
   "contactInfo": *[_type == "contactInfo"][0] {
     ...,
@@ -38,17 +53,32 @@ export async function getAboutPageData() {
   const query = groq`*[_type == "aboutPage"][0] {
     ...,
     "marqueeImageUrls": marqueeImages[].asset->url,
-    "bannerVideoUrl": bannerVideo.asset->url
+    "bannerVideoUrl": bannerVideo.asset->url,
+    "seo": seo {
+      ...,
+      "ogImageUrl": ogImage.asset->url
+    }
   }`;
   return client.fetch(query, {}, { next: { revalidate: 0 } });
 }
 
 export async function getServicesData() {
   const query = groq`{
-    "pageSettings": *[_type == "servicesPage"][0],
+    "pageSettings": *[_type == "servicesPage"][0] {
+      ...,
+      "seo": seo {
+        ...,
+        "ogImageUrl": ogImage.asset->url
+      }
+    },
     "services": *[_type == "service"] | order(order asc) {
       ...,
-      "imageUrl": image.asset->url
+      "imageUrl": image.asset->url,
+      "imageAlt": image.alt,
+      "seo": seo {
+        ...,
+        "ogImageUrl": ogImage.asset->url
+      }
     }
   }`;
   return client.fetch(query, {}, { next: { revalidate: 0 } });
@@ -56,8 +86,22 @@ export async function getServicesData() {
 
 export async function getProjectsData() {
   const query = groq`{
-    "pageSettings": *[_type == "projectsPage"][0],
-    "projects": *[_type == "project"] | order(order asc)
+    "pageSettings": *[_type == "projectsPage"][0] {
+      ...,
+      "seo": seo {
+        ...,
+        "ogImageUrl": ogImage.asset->url
+      }
+    },
+    "projects": *[_type == "project"] | order(order asc) {
+      ...,
+      "imageUrl": image.asset->url,
+      "imageAlt": image.alt,
+      "seo": seo {
+        ...,
+        "ogImageUrl": ogImage.asset->url
+      }
+    }
   }`;
   return client.fetch(query, {}, { next: { revalidate: 0 } });
 }

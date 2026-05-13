@@ -13,5 +13,10 @@ export const servicesPage = defineType({
       initialValue: ["FROM", "CONCEPT TO", "FINAL FRAME"],
       description: "The main big heading words",
     }),
+    defineField({
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+    }),
   ],
 });

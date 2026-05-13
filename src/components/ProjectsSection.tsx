@@ -13,6 +13,7 @@ interface ProjectProps {
   settings?: {
     projectsSectionBadge?: string;
     projectsSectionTitle?: string[];
+    projectsSectionTitleTag?: string;
     projectsSectionButtonLabel?: string;
     projectsSectionButtonUrl?: string;
   };
@@ -68,6 +69,8 @@ export default function ProjectsSection({ data, settings }: ProjectProps) {
     offset: ["start start", "end end"]
   });
 
+  const TitleTag = (settings?.projectsSectionTitleTag || "h2") as keyof JSX.IntrinsicElements;
+
   const bloomVariants: Variants = {
     hidden: { 
       scale: 0.8, 
@@ -101,11 +104,11 @@ export default function ProjectsSection({ data, settings }: ProjectProps) {
             <span className="pill-badge mb-4 md:mb-6 border-white/20 text-[9px] md:text-[11px]">
               {settings?.projectsSectionBadge || "OUR WORK"}
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase mb-6 md:mb-8 text-white">
+            <TitleTag className="text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase mb-6 md:mb-8 text-white">
               {(settings?.projectsSectionTitle || ["CREATIVITY", "IN ACTION"]).map((line, i) => (
                 <span key={i} className="block">{line}</span>
               ))}
-            </h2>
+            </TitleTag>
             <a href={settings?.projectsSectionButtonUrl || "/projects"}>
               <button className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-white hover:text-accent-orange transition-colors">
                 {settings?.projectsSectionButtonLabel || "VIEW PORTFOLIO"}

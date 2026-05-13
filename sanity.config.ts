@@ -57,10 +57,26 @@ export default defineConfig({
                   .schemaType('servicesPage')
                   .documentId('servicesPage')
               ),
+            S.listItem()
+              .title('Projects Page Settings')
+              .id('projectsPage')
+              .child(
+                S.document()
+                  .schemaType('projectsPage')
+                  .documentId('projectsPage')
+              ),
+            S.listItem()
+              .title('Site Settings & SEO')
+              .id('siteSettings')
+              .child(
+                S.document()
+                  .schemaType('siteSettings')
+                  .documentId('siteSettings')
+              ),
             S.divider(),
             // Regular document types
             ...S.documentTypeListItems().filter(
-              (item) => !['homepage', 'navigation', 'contactInfo', 'aboutPage', 'servicesPage'].includes(item.getId()!)
+              (item) => !['homepage', 'navigation', 'contactInfo', 'aboutPage', 'servicesPage', 'projectsPage', 'siteSettings', 'seo', 'richText'].includes(item.getId()!)
             ),
           ]),
     }),

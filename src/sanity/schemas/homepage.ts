@@ -36,6 +36,13 @@ export const homepage = defineType({
       description: "The big headline words like 'CREATING', 'STORIES+', 'THAT MOVE'",
     }),
     defineField({
+      name: "heroTitleTag",
+      title: "Hero Title Tag",
+      type: "string",
+      options: { list: ["h1", "h2", "h3", "h4", "h5", "h6"] },
+      initialValue: "h1",
+    }),
+    defineField({
       name: "heroButtons",
       title: "Hero Buttons",
       type: "array",
@@ -61,6 +68,13 @@ export const homepage = defineType({
       placeholder: "POWERING BRANDS WITH\nCREATIVE THINKING &\nSEAMLESS EXECUTION",
     }),
     defineField({
+      name: "introHeadlineTag",
+      title: "Intro Headline Tag",
+      type: "string",
+      options: { list: ["h1", "h2", "h3", "h4", "h5", "h6"] },
+      initialValue: "h2",
+    }),
+    defineField({
       name: "introSubheadline",
       title: "Intro Subheadline",
       type: "string",
@@ -69,9 +83,7 @@ export const homepage = defineType({
     defineField({
       name: "introParagraph",
       title: "Intro Paragraph",
-      type: "text",
-      initialValue: "Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands. From first idea to final frame, we combine creative thinking with seamless execution—bringing stories to life in ways that feel authentic, impactful, and impossible to ignore.",
-      placeholder: "Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands...",
+      type: "richText",
     }),
     defineField({
       name: "introButtonLabel",
@@ -100,6 +112,13 @@ export const homepage = defineType({
       initialValue: ["FROM CONCEPT", "TO FINAL FRAME"],
     }),
     defineField({
+      name: "servicesSectionTitleTag",
+      title: "Services Section Title Tag",
+      type: "string",
+      options: { list: ["h1", "h2", "h3", "h4", "h5", "h6"] },
+      initialValue: "h2",
+    }),
+    defineField({
       name: "projectsSectionBadge",
       title: "Projects Section Badge",
       type: "string",
@@ -114,6 +133,13 @@ export const homepage = defineType({
       initialValue: ["CREATIVITY", "IN ACTION"],
     }),
     defineField({
+      name: "projectsSectionTitleTag",
+      title: "Projects Section Title Tag",
+      type: "string",
+      options: { list: ["h1", "h2", "h3", "h4", "h5", "h6"] },
+      initialValue: "h2",
+    }),
+    defineField({
       name: "projectsSectionButtonLabel",
       title: "Projects Section Button Label",
       type: "string",
@@ -126,5 +152,14 @@ export const homepage = defineType({
       type: "string",
       initialValue: "/projects",
     }),
+    defineField({
+      name: "seo",
+      title: "SEO & Social",
+      type: "seo",
+      group: "seo",
+    }),
+  ],
+  groups: [
+    { name: "seo", title: "SEO" },
   ],
 });
