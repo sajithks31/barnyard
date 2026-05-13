@@ -70,13 +70,13 @@ const ServiceCard = ({
   const contentOpacity = useTransform(progress, range, [1, isLast ? 1 : -1]);
 
   return (
-    <div ref={container} className="h-[100vh] flex items-center justify-center sticky top-0 px-4 md:px-0">
+    <div ref={container} className="h-[90vh] flex items-start justify-center sticky top-0 px-4 md:px-0">
       <motion.div 
         style={{ 
           scale, 
           opacity,
           zIndex: (idx + 1) * 10,
-          top: `calc(5% + ${idx * 20}px)`
+          top: `calc(2% + ${idx * 20}px)`
         }}
         className="relative bg-white text-black rounded-[24px] md:rounded-[32px] p-6 md:p-8 lg:p-10 flex flex-col md:flex-row gap-10 lg:gap-14 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group w-full max-w-[1600px] xl:max-w-[2000px] 2xl:max-w-[2600px] border border-white/20 overflow-hidden"
       >
@@ -142,8 +142,8 @@ export default function ServicesSection({ data, settings }: ServiceProps) {
 
   return (
     <section ref={container} className="bg-background relative z-10" id="services">
-      <div className="max-w-[1800px] xl:max-w-[2400px] 2xl:max-w-[2800px] px-6 md:px-12 lg:px-24 mx-auto pt-6 pb-32 lg:pt-8 lg:pb-[20vh]">
-        <div className="mb-4 flex flex-col items-start text-left">
+      <div className="max-w-[1800px] xl:max-w-[2400px] 2xl:max-w-[2800px] px-6 md:px-12 lg:px-24 mx-auto pt-0 pb-32 lg:pb-[20vh]">
+        <div className="mb-0 flex flex-col items-start text-left">
           <motion.span 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 0.9, x: 0 }}
