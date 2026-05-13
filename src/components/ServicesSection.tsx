@@ -160,7 +160,7 @@ export default function ServicesSection({ data, settings }: ServiceProps) {
             className="text-6xl sm:text-7xl md:text-8xl lg:text-[100px] font-medium tracking-tighter leading-[0.9] uppercase text-white"
           >
             {(settings?.servicesSectionTitle || ["FROM CONCEPT", "TO FINAL FRAME"]).map((line, i) => (
-              <span key={i} className={`block ${i % 2 !== 0 ? "text-white/50" : ""}`}>{line}</span>
+              <span key={i} className="block text-white">{line}</span>
             ))}
           </motion.h2>
         </div>
