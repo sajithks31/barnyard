@@ -7,11 +7,12 @@ import { urlFor } from "@/sanity/client";
 
 interface ServiceProps {
   data?: {
-    title: string;
-    description: string;
-    tags?: string[];
     image: any;
   }[];
+  settings?: {
+    servicesSectionBadge?: string;
+    servicesSectionTitle?: string[];
+  };
 }
 
 const servicesPlaceholder = [
@@ -130,7 +131,7 @@ const ServiceCard = ({
   );
 };
 
-export default function ServicesSection({ data }: ServiceProps) {
+export default function ServicesSection({ data, settings }: ServiceProps) {
   const container = useRef(null);
   const displayServices = data && data.length > 0 ? data : servicesPlaceholder;
   
@@ -149,17 +150,18 @@ export default function ServicesSection({ data }: ServiceProps) {
             viewport={{ once: true }}
             className="rounded-full border border-white/40 px-10 py-3 text-[11px] font-normal tracking-[0.2em] uppercase inline-block mb-10 text-white/80"
           >
-            OUR SERVICES
+            {settings?.servicesSectionBadge || "OUR SERVICES"}
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-[100px] font-normal tracking-tighter leading-[0.9] uppercase text-white"
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-[100px] font-medium tracking-tighter leading-[0.9] uppercase text-white"
           >
-            <span className="block">FROM CONCEPT</span>
-            <span className="block text-white/50">TO FINAL FRAME</span>
+            {(settings?.servicesSectionTitle || ["FROM CONCEPT", "TO FINAL FRAME"]).map((line, i) => (
+              <span key={i} className={`block ${i % 2 !== 0 ? "text-white/50" : ""}`}>{line}</span>
+            ))}
           </motion.h2>
         </div>
 

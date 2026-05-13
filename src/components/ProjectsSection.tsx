@@ -6,10 +6,14 @@ import { urlFor } from "@/sanity/client";
 
 interface ProjectProps {
   data?: {
-    title: string;
-    year: string;
     image: any;
   }[];
+  settings?: {
+    projectsSectionBadge?: string;
+    projectsSectionTitle?: string[];
+    projectsSectionButtonLabel?: string;
+    projectsSectionButtonUrl?: string;
+  };
 }
 
 const placeholderProjects = [
@@ -39,7 +43,7 @@ const placeholderProjects = [
   }
 ];
 
-export default function ProjectsSection({ data }: ProjectProps) {
+export default function ProjectsSection({ data, settings }: ProjectProps) {
   const displayProjects = data && data.length > 0 
     ? data.map((p, i) => {
         const imgUrl = p.image?.asset 
@@ -92,13 +96,19 @@ export default function ProjectsSection({ data }: ProjectProps) {
           <div className="absolute inset-4 rounded-full border-[3px] md:border-[6px] border-blue-900/40" />
           
           <div className="absolute inset-10 md:inset-20 rounded-full bg-gradient-to-tr from-blue-950 to-background flex flex-col items-center justify-center p-6 md:p-12 text-center border border-blue-500/10 shadow-3xl">
-            <span className="pill-badge mb-4 md:mb-6 border-white/20 text-[9px] md:text-[11px]">OUR WORK</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase mb-6 md:mb-8">
-              CREATIVITY<br/>IN ACTION
+            <span className="pill-badge mb-4 md:mb-6 border-white/20 text-[9px] md:text-[11px]">
+              {settings?.projectsSectionBadge || "OUR WORK"}
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter leading-none uppercase mb-6 md:mb-8 text-white">
+              {(settings?.projectsSectionTitle || ["CREATIVITY", "IN ACTION"]).map((line, i) => (
+                <span key={i} className="block">{line}</span>
+              ))}
             </h2>
-            <button className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-white hover:text-accent-orange transition-colors">
-              VIEW PORTFOLIO
-            </button>
+            <a href={settings?.projectsSectionButtonUrl || "/projects"}>
+              <button className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-white hover:text-accent-orange transition-colors">
+                {settings?.projectsSectionButtonLabel || "VIEW PORTFOLIO"}
+              </button>
+            </a>
           </div>
         </motion.div>
       </div>

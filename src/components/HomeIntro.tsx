@@ -7,6 +7,8 @@ interface HomeIntroProps {
   data?: {
     introHeadline?: string;
     introParagraph?: string;
+    introButtonLabel?: string;
+    introButtonUrl?: string;
   };
 }
 
@@ -59,10 +61,12 @@ export default function HomeIntro({ data }: HomeIntroProps) {
           </motion.p>
           
           <motion.div variants={item}>
-            <button className="text-[11px] md:text-[12px] font-medium tracking-[0.15em] uppercase hover:opacity-50 transition-opacity flex items-center gap-[2px]">
-              READ MORE
-              <ArrowUpRight className="w-4 h-4 md:w-[18px] md:h-[18px] stroke-[1.5]" />
-            </button>
+            <a href={data?.introButtonUrl || "/about"}>
+              <button className="text-[11px] md:text-[12px] font-medium tracking-[0.15em] uppercase hover:opacity-50 transition-opacity flex items-center gap-[2px]">
+                {data?.introButtonLabel || "READ MORE"}
+                <ArrowUpRight className="w-4 h-4 md:w-[18px] md:h-[18px] stroke-[1.5]" />
+              </button>
+            </a>
           </motion.div>
         </div>
       </motion.div>

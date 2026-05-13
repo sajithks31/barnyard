@@ -28,10 +28,10 @@ export default async function Home() {
       <HomeIntro data={data?.homepage} />
 
       {/* Services Section */}
-      <ServicesSection data={data?.services} />
+      <ServicesSection data={data?.services} settings={data?.homepage} />
 
       {/* Projects Section */}
-      <ProjectsSection data={data?.projects} />
+      <ProjectsSection data={data?.projects} settings={data?.homepage} />
 
       {/* LET'S CONNECT (Homepage Only) */}
       <ContactSection contactInfo={contact} />
