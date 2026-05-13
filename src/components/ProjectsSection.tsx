@@ -6,6 +6,8 @@ import { urlFor } from "@/sanity/client";
 
 interface ProjectProps {
   data?: {
+    title: string;
+    year?: string;
     image: any;
   }[];
   settings?: {
