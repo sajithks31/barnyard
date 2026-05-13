@@ -41,7 +41,9 @@ export default function ContactPage() {
               <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10vw] font-medium tracking-tighter uppercase leading-[0.85] mb-8">
                 LET'S<br />CONNECT
               </h1>
-              <div className="text-4xl md:text-5xl font-light opacity-50 mb-12">+</div>
+              <div className="mb-12 opacity-80">
+                <img src="/overlapping-circles.svg" alt="icon" className="w-20 md:w-24 h-auto invert" />
+              </div>
             </div>
 
             <div className="flex flex-col gap-10 mt-auto">

@@ -37,7 +37,9 @@ export default function ContactSection({ contactInfo = {} }: ContactSectionProps
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] font-normal tracking-tighter uppercase leading-[0.9] mb-6 md:mb-8">
               LET'S<br/>CONNECT
             </h2>
-            <div className="text-3xl md:text-4xl font-light opacity-80">+</div>
+            <div className="mt-8 opacity-80">
+              <img src="/overlapping-circles.svg" alt="icon" className="w-16 md:w-20 h-auto invert" />
+            </div>
           </div>
           
           <div className="flex flex-col flex-1 justify-between gap-4 mt-0">
