@@ -142,7 +142,7 @@ export default function ClientAbout({ data }: AboutPageProps) {
               {/* Centered Content */}
               <div className="relative z-20 flex flex-col items-center gap-4 md:gap-6">
                 <div className="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-white/20 text-[11px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
-                  ABOUT BARNYARD
+                  {data?.aboutBadge || "ABOUT BARNYARD"}
                 </div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-normal uppercase leading-[1.15]">
                   {bannerHeadline.map((line: string, i: number) => (

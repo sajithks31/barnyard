@@ -3,89 +3,71 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function NotFound() {
   return (
     <div className="bg-black min-h-screen text-white flex flex-col items-center justify-center relative overflow-hidden selection:bg-white selection:text-black z-50">
-      {/* Background Glow Image */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-        <div className="relative w-full max-w-[1400px] aspect-video opacity-60">
-          <Image 
-            src="/glow.png" 
-            alt="Background Glow" 
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
+      {/* Subtle Brand Element */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
+        <img src="/overlapping-circles.svg" alt="branding" className="w-[80vw] h-auto" />
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center max-w-full px-6 pt-28 md:pt-36">
-        {/* 404 Numbers */}
-        <div className="relative flex items-center justify-center select-none font-bold">
-          <span className="text-[25vw] md:text-[280px] lg:text-[350px] tracking-[-0.08em] leading-none">4</span>
-          
-          <div className="relative flex items-center justify-center w-[0.7em] md:w-[180px] lg:w-[240px]">
-            <span className="text-[25vw] md:text-[280px] lg:text-[350px] tracking-[-0.08em] leading-none">0</span>
-            {/* Astronaut Image - Floating effect */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[180%] h-[180%] pointer-events-none"
-            >
-              <motion.div
-                animate={{ 
-                  y: [0, -20, 0], 
-                  rotate: [-3, 3, -3],
-                }}
-                transition={{ 
-                  duration: 6, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-                className="w-full h-full relative"
-                style={{ willChange: "transform" }}
-              >
-                <Image 
-                  src="/astronaut.png" 
-                  alt="Astronaut" 
-                  fill
-                  className="object-contain"
-                  priority
-                  sizes="(max-width: 768px) 80vw, 500px"
-                />
-              </motion.div>
-            </motion.div>
+      <div className="relative z-10 flex flex-col items-center max-w-[2400px] w-full px-6">
+        {/* Colossal 404 */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="font-bold tracking-tighter leading-none flex items-center justify-center"
+        >
+          <span className="text-[35vw] md:text-[400px] lg:text-[500px] 2xl:text-[700px]">4</span>
+          <div className="flex items-center justify-center">
+            <img 
+              src="/overlapping-circles.svg" 
+              alt="0" 
+              className="w-[25vw] md:w-[300px] lg:w-[400px] 2xl:w-[550px] h-auto invert brightness-0" 
+            />
           </div>
-          
-          <span className="text-[25vw] md:text-[280px] lg:text-[350px] tracking-[-0.08em] leading-none">4</span>
-        </div>
+          <span className="text-[35vw] md:text-[400px] lg:text-[500px] 2xl:text-[700px]">4</span>
+        </motion.div>
 
         {/* Text and Button */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="flex flex-col items-center gap-8 mt-6 md:mt-12"
+          transition={{ delay: 0.5, duration: 1 }}
+          className="flex flex-col items-center gap-12 -mt-10 md:-mt-20"
         >
-          <h1 className="text-2xl md:text-4xl lg:text-6xl font-normal tracking-[0.1em] uppercase text-center">
-            PAGE <span className="italic font-light">NOT</span> FOUND
+          <h1 className="text-3xl md:text-5xl lg:text-7xl 2xl:text-[100px] font-normal tracking-[0.1em] uppercase text-center">
+            PAGE <span className="italic font-light opacity-50">NOT</span> FOUND
           </h1>
 
-          <Link href="/contact">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-3 group backdrop-blur-md"
-            >
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase">CONTACT US</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </motion.button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-6">
+            <Link href="/">
+              <button
+                className="px-10 py-4 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-4 group backdrop-blur-md"
+              >
+                <span className="text-[11px] md:text-[12px] font-bold tracking-[0.2em] uppercase">GO BACK HOME</span>
+                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </button>
+            </Link>
+            
+            <Link href="/contact">
+              <button
+                className="px-10 py-4 rounded-full border border-white/20 hover:border-white transition-all duration-500 flex items-center gap-4 group"
+              >
+                <span className="text-[11px] md:text-[12px] font-bold tracking-[0.2em] uppercase">CONTACT US</span>
+                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </button>
+            </Link>
+          </div>
         </motion.div>
+      </div>
+
+      {/* Bottom info */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-20 text-[10px] tracking-[0.3em] font-medium uppercase">
+        Barnyard Productions • 2026
       </div>
     </div>
   );

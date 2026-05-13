@@ -13,6 +13,12 @@ export const aboutPage = defineType({
       description: "Lines of the big title (e.g. ABOUT, BARNYARD, PRODUCTIONS)",
     }),
     defineField({
+      name: "aboutBadge",
+      title: "About Section Badge",
+      type: "string",
+      initialValue: "ABOUT BARNYARD",
+    }),
+    defineField({
       name: "marqueeImages",
       title: "Marquee Images",
       type: "array",
