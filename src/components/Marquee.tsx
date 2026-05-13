@@ -44,6 +44,21 @@ export default function Marquee({ images, speed = 40, reverse = false }: Marquee
     return () => cancelAnimationFrame(animationFrameId);
   }, [isHovered, isDragging, reverse]);
 
+  // Initial centering
+  useEffect(() => {
+    if (scrollRef.current && scrollRef.current.children.length > 0) {
+      const el = scrollRef.current;
+      const setWidth = el.children[0].clientWidth;
+      const firstImg = el.querySelector('.shrink-0') as HTMLElement;
+      if (firstImg) {
+        const imgWidth = firstImg.clientWidth;
+        const screenWidth = window.innerWidth;
+        // Scroll to the second set (index 1) and center the first image of that set
+        el.scrollLeft = setWidth + (imgWidth / 2) - (screenWidth / 2);
+      }
+    }
+  }, []);
+
   const onMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
     startX.current = e.pageX - scrollRef.current!.offsetLeft;
@@ -96,11 +111,11 @@ export default function Marquee({ images, speed = 40, reverse = false }: Marquee
       >
         {/* Render 3 identical sets of images to enable infinite wrapping */}
         {[0, 1, 2].map((setIndex) => (
-          <div key={setIndex} className="flex shrink-0 gap-6 pr-6">
+          <div key={setIndex} className="flex shrink-0 gap-6 md:gap-10 lg:gap-16 pr-6 md:pr-10 lg:pr-16">
             {images.map((src, idx) => (
               <div
                 key={idx}
-                className="relative shrink-0 w-[300px] md:w-[450px] aspect-[4/5] rounded-[30px] overflow-hidden bg-neutral-900 border border-white/5"
+                className="relative shrink-0 w-[80vw] md:w-[45vw] lg:w-[40vw] aspect-[4/5] rounded-[24px] md:rounded-[40px] overflow-hidden bg-neutral-900 border border-white/5 shadow-2xl"
               >
                 <img
                   src={src}
