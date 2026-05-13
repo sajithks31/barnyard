@@ -50,7 +50,7 @@ export default function HomeIntro({ data }: HomeIntroProps) {
             ABOUT US
           </motion.span>
           
-          <motion.h2 variants={item} className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[90px] 2xl:text-[120px] font-bold tracking-tighter leading-[1.0] mb-10 md:mb-14 uppercase whitespace-pre-wrap">
+          <motion.h2 variants={item} className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[90px] 2xl:text-[120px] font-medium tracking-tighter leading-[1.0] mb-10 md:mb-14 uppercase whitespace-pre-wrap">
             {headline}
           </motion.h2>
           
