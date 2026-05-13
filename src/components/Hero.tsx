@@ -8,7 +8,12 @@ interface HeroProps {
   data?: {
     heroTitleLines?: string[];
     heroButtons?: { label: string; url: string }[];
-    heroVideoUrl?: string;
+    heroDesktop?: any;
+    heroMobile?: any;
+    heroDesktopUrl?: string;
+    heroDesktopImage?: string;
+    heroMobileUrl?: string;
+    heroMobileImage?: string;
   };
 }
 
@@ -21,7 +26,13 @@ export default function Hero({ data }: HeroProps) {
     { label: 'OUR SERVICES', url: '#services' },
     { label: 'OUR WORK', url: '/projects' }
   ];
-  const videoUrl = data?.heroVideoUrl || "/hero-banner.mp4";
+
+  // Media logic
+  const desktopType = data?.heroDesktop?.type || "video";
+  const mobileType = data?.heroMobile?.type || desktopType;
+  
+  const desktopMedia = desktopType === "video" ? data?.heroDesktopUrl : data?.heroDesktopImage;
+  const mobileMedia = mobileType === "video" ? data?.heroMobileUrl : data?.heroMobileImage;
 
   // Parallax effect: background moves slower (y will be 30% of scroll)
   const backgroundY = useTransform(scrollY, [0, 1000], [0, 300]);
@@ -51,21 +62,75 @@ export default function Hero({ data }: HeroProps) {
 
   return (
     <section className="relative min-h-[100dvh] w-full flex flex-col justify-end overflow-hidden bg-black">
-      {/* Video Background with Parallax */}
+      {/* Media Background with Parallax */}
       <motion.div 
         style={{ y: backgroundY }}
         className="absolute inset-0 z-0"
       >
-        <video 
-          key={videoUrl}
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
-        >
-          <source src={videoUrl} type="video/mp4" />
-        </video>
+        {/* Desktop Media */}
+        <div className="hidden md:block absolute inset-0">
+          {desktopType === "video" && desktopMedia ? (
+            <video 
+              key={desktopMedia}
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            >
+              <source src={desktopMedia} type="video/mp4" />
+            </video>
+          ) : desktopMedia ? (
+            <img 
+              src={desktopMedia} 
+              alt="Hero Desktop" 
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            />
+          ) : (
+             <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            >
+              <source src="/hero-banner.mp4" type="video/mp4" />
+            </video>
+          )}
+        </div>
+
+        {/* Mobile Media */}
+        <div className="block md:hidden absolute inset-0">
+          {mobileType === "video" && (mobileMedia || desktopMedia) ? (
+            <video 
+              key={mobileMedia || desktopMedia}
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            >
+              <source src={mobileMedia || desktopMedia} type="video/mp4" />
+            </video>
+          ) : (mobileMedia || desktopMedia) ? (
+            <img 
+              src={mobileMedia || desktopMedia} 
+              alt="Hero Mobile" 
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            />
+          ) : (
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            >
+              <source src="/hero-banner.mp4" type="video/mp4" />
+            </video>
+          )}
+        </div>
+
         {/* Optional overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
       </motion.div>

@@ -6,11 +6,26 @@ export const homepage = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "heroVideo",
-      title: "Hero Background Video",
-      type: "file",
-      options: { accept: "video/*" },
-      description: "Background video for the top of the homepage",
+      name: "heroDesktop",
+      title: "Hero Background (Desktop)",
+      type: "object",
+      fields: [
+        { name: "type", type: "string", title: "Media Type", options: { list: ["video", "image"] }, initialValue: "video" },
+        { name: "video", type: "file", title: "Video File", hidden: ({ parent }) => parent?.type !== "video" },
+        { name: "image", type: "image", title: "Image File", hidden: ({ parent }) => parent?.type !== "image" },
+      ],
+      description: "Background media for desktop screens.",
+    }),
+    defineField({
+      name: "heroMobile",
+      title: "Hero Background (Mobile)",
+      type: "object",
+      fields: [
+        { name: "type", type: "string", title: "Media Type", options: { list: ["video", "image"] }, initialValue: "video" },
+        { name: "video", type: "file", title: "Video File", hidden: ({ parent }) => parent?.type !== "video" },
+        { name: "image", type: "image", title: "Image File", hidden: ({ parent }) => parent?.type !== "image" },
+      ],
+      description: "Background media for mobile screens. If left empty, desktop media will be used.",
     }),
     defineField({
       name: "heroTitleLines",

@@ -4,7 +4,10 @@ import { client } from "./client";
 export const homepageQuery = groq`{
   "homepage": *[_type == "homepage"][0] {
     ...,
-    "heroVideoUrl": heroVideo.asset->url
+    "heroDesktopUrl": heroDesktop.video.asset->url,
+    "heroDesktopImage": heroDesktop.image.asset->url,
+    "heroMobileUrl": heroMobile.video.asset->url,
+    "heroMobileImage": heroMobile.image.asset->url
   },
   "navigation": *[_type == "navigation"][0],
   "contactInfo": *[_type == "contactInfo"][0] {
