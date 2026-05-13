@@ -58,6 +58,7 @@ export const homepage = defineType({
       title: "Intro Headline",
       type: "text",
       initialValue: "POWERING BRANDS WITH\nCREATIVE THINKING &\nSEAMLESS EXECUTION",
+      placeholder: "POWERING BRANDS WITH\nCREATIVE THINKING &\nSEAMLESS EXECUTION",
     }),
     defineField({
       name: "introSubheadline",
@@ -70,6 +71,7 @@ export const homepage = defineType({
       title: "Intro Paragraph",
       type: "text",
       initialValue: "Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands. From first idea to final frame, we combine creative thinking with seamless execution—bringing stories to life in ways that feel authentic, impactful, and impossible to ignore.",
+      placeholder: "Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands...",
     }),
     defineField({
       name: "introButtonLabel",
@@ -88,6 +90,7 @@ export const homepage = defineType({
       title: "Services Section Badge",
       type: "string",
       initialValue: "OUR SERVICES",
+      placeholder: "OUR SERVICES",
     }),
     defineField({
       name: "servicesSectionTitle",
@@ -101,6 +104,7 @@ export const homepage = defineType({
       title: "Projects Section Badge",
       type: "string",
       initialValue: "OUR WORK",
+      placeholder: "OUR WORK",
     }),
     defineField({
       name: "projectsSectionTitle",
@@ -114,6 +118,7 @@ export const homepage = defineType({
       title: "Projects Section Button Label",
       type: "string",
       initialValue: "VIEW PORTFOLIO",
+      placeholder: "VIEW PORTFOLIO",
     }),
     defineField({
       name: "projectsSectionButtonUrl",
