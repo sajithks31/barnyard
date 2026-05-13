@@ -78,14 +78,14 @@ const ServiceCard = ({
           zIndex: (idx + 1) * 10,
           top: `calc(8% + ${idx * 28}px)`
         }}
-        className="relative bg-white text-black rounded-[24px] md:rounded-[32px] p-6 md:p-12 lg:p-14 flex flex-col md:flex-row gap-10 lg:gap-14 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group w-full max-w-[1600px] xl:max-w-[2000px] 2xl:max-w-[2600px] border border-white/20 overflow-hidden"
+        className="relative bg-white text-black rounded-[24px] md:rounded-[32px] p-6 md:p-8 lg:p-10 flex flex-col md:flex-row gap-10 lg:gap-14 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group w-full max-w-[1600px] xl:max-w-[2000px] 2xl:max-w-[2600px] border border-white/20 overflow-hidden"
       >
         <motion.div 
           style={{ opacity: contentOpacity }}
           className="flex-1 flex flex-col justify-between order-1 md:order-1 h-full"
         >
           <div>
-            <div className="mb-6 md:mb-10">
+            <div className="mb-4 md:mb-6">
               <img src="/overlapping-circles.svg" alt="icon" className="w-10 md:w-12 h-auto opacity-100" />
             </div>
             <h3 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter uppercase mb-6 leading-[0.9] pr-4 md:pr-12">
@@ -142,13 +142,13 @@ export default function ServicesSection({ data, settings }: ServiceProps) {
 
   return (
     <section ref={container} className="bg-background relative z-10" id="services">
-      <div className="max-w-[1800px] xl:max-w-[2400px] 2xl:max-w-[2800px] px-6 md:px-12 lg:px-24 mx-auto pt-16 pb-32 lg:pt-20 lg:pb-[20vh]">
-        <div className="mb-16 md:mb-24 flex flex-col items-start text-left">
+      <div className="max-w-[1800px] xl:max-w-[2400px] 2xl:max-w-[2800px] px-6 md:px-12 lg:px-24 mx-auto pt-10 pb-32 lg:pt-16 lg:pb-[20vh]">
+        <div className="mb-8 md:mb-10 flex flex-col items-start text-left">
           <motion.span 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 0.9, x: 0 }}
             viewport={{ once: true }}
-            className="rounded-full border border-white/40 px-10 py-3 text-[11px] font-normal tracking-[0.2em] uppercase inline-block mb-10 text-white/80"
+            className="rounded-full border border-white/40 px-10 py-3 text-[11px] font-normal tracking-[0.2em] uppercase inline-block mb-4 text-white/80"
           >
             {settings?.servicesSectionBadge || "OUR SERVICES"}
           </motion.span>
