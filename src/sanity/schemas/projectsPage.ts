@@ -11,7 +11,6 @@ export const projectsPage = defineType({
       type: "array",
       of: [{ type: "string" }],
       initialValue: ["FEATURED", "PROJECTS"],
-      placeholder: ["FEATURED", "PROJECTS"],
       description: "The main big heading words for the projects page",
     }),
   ],

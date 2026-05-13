@@ -11,7 +11,6 @@ export const servicesPage = defineType({
       type: "array",
       of: [{ type: "string" }],
       initialValue: ["FROM", "CONCEPT TO", "FINAL FRAME"],
-      placeholder: ["FROM", "CONCEPT TO", "FINAL FRAME"],
       description: "The main big heading words",
     }),
   ],
