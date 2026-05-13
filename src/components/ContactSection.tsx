@@ -34,7 +34,7 @@ export default function ContactSection({ contactInfo = {} }: ContactSectionProps
         {/* Left Side: Headline and Details */}
         <div className="w-full lg:w-[40%] text-left flex flex-col">
           <div className="mb-10 lg:mb-12">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] font-normal tracking-tighter uppercase leading-[0.9] mb-6 md:mb-8">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] xl:text-[100px] 2xl:text-[120px] font-normal tracking-tighter uppercase leading-[0.9] mb-6 md:mb-8">
               LET'S<br/>CONNECT
             </h2>
             <div className="mt-8 opacity-80">
