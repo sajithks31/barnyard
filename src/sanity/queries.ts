@@ -17,7 +17,7 @@ export const homepageQuery = groq`{
   },
   "projects": *[_type == "project"] | order(order asc) {
     ...,
-    "imageUrl": image.asset->url
+    "image": image.asset->url
   },
   "aboutPage": *[_type == "aboutPage"][0] {
     ...,

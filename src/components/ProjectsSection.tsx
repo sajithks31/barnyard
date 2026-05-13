@@ -41,13 +41,19 @@ const placeholderProjects = [
 
 export default function ProjectsSection({ data }: ProjectProps) {
   const displayProjects = data && data.length > 0 
-    ? data.map((p, i) => ({
-        ...p,
-        img: p.image?.asset ? urlFor(p.image).width(800).url() : (typeof p.image === 'string' ? p.image : placeholderProjects[i % 4].img),
-        title: p.title + (p.year ? ` • ${p.year}` : ""),
-        style: placeholderProjects[i % 4].style,
-        aspect: placeholderProjects[i % 4].aspect
-      })) 
+    ? data.map((p, i) => {
+        const imgUrl = p.image?.asset 
+          ? urlFor(p.image).width(800).url() 
+          : (typeof p.image === 'string' ? p.image : placeholderProjects[i % 4].img);
+          
+        return {
+          ...p,
+          img: imgUrl,
+          title: p.title + (p.year ? ` • ${p.year}` : ""),
+          style: placeholderProjects[i % 4].style,
+          aspect: placeholderProjects[i % 4].aspect
+        };
+      }) 
     : placeholderProjects;
 
   const sectionRef = useRef(null);
