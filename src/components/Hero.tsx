@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, ElementType } from "react";
 
 interface HeroProps {
   data?: {
@@ -22,7 +22,7 @@ export default function Hero({ data }: HeroProps) {
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
   
-  const TitleTag = (data?.heroTitleTag || "h1") as keyof JSX.IntrinsicElements;
+  const TitleTag = (data?.heroTitleTag || "h1") as ElementType;
   
   const titleLines = data?.heroTitleLines?.length ? data.heroTitleLines : ['CREATING', 'STORIES+', 'THAT MOVE'];
   const buttons = data?.heroButtons?.length ? data.heroButtons : [

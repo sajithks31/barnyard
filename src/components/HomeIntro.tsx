@@ -3,6 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PortableText } from "@portabletext/react";
+import { ElementType } from "react";
 
 interface HomeIntroProps {
   data?: {
@@ -37,7 +38,7 @@ const components = {
 
 export default function HomeIntro({ data }: HomeIntroProps) {
   const headline = data?.introHeadline || "POWERING BRANDS WITH\nCREATIVE THINKING &\nSEAMLESS EXECUTION";
-  const HeadlineTag = (data?.introHeadlineTag || "h2") as keyof JSX.IntrinsicElements;
+  const HeadlineTag = (data?.introHeadlineTag || "h2") as ElementType;
   const paragraph = data?.introParagraph || "Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands. From first idea to final frame, we combine creative thinking with seamless execution—bringing stories to life in ways that feel authentic, impactful, and impossible to ignore.";
 
   const container: Variants = {

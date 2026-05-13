@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, ElementType } from "react";
 import { urlFor } from "@/sanity/client";
 
 interface ServiceProps {
@@ -141,7 +141,7 @@ export default function ServicesSection({ data, settings }: ServiceProps) {
     offset: ['start start', 'end end']
   });
 
-  const TitleTag = (settings?.servicesSectionTitleTag || "h2") as keyof JSX.IntrinsicElements;
+  const TitleTag = (settings?.servicesSectionTitleTag || "h2") as ElementType;
 
   return (
     <section ref={container} className="bg-background relative z-10" id="services">

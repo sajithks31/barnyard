@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, type Variants } from "framer-motion";
-import { useRef } from "react";
+import { useRef, ElementType } from "react";
 import { urlFor } from "@/sanity/client";
 
 interface ProjectProps {
@@ -69,7 +69,7 @@ export default function ProjectsSection({ data, settings }: ProjectProps) {
     offset: ["start start", "end end"]
   });
 
-  const TitleTag = (settings?.projectsSectionTitleTag || "h2") as keyof JSX.IntrinsicElements;
+  const TitleTag = (settings?.projectsSectionTitleTag || "h2") as ElementType;
 
   const bloomVariants: Variants = {
     hidden: { 
