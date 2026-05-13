@@ -80,7 +80,7 @@ export default function ClientServices({ data }: any) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="bg-[#FAFAFA] text-black rounded-[32px] md:rounded-[48px] p-5 md:p-10 lg:p-16 2xl:p-32 flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-20 group hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 border border-white/20 overflow-hidden"
+              className="bg-white text-black rounded-[24px] md:rounded-[32px] p-6 md:p-12 lg:p-14 flex flex-col lg:flex-row gap-10 lg:gap-14 group hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500"
             >
               <div className="flex-1 flex flex-col justify-between">
                 <div>
@@ -88,15 +88,15 @@ export default function ClientServices({ data }: any) {
                     <img src="/overlapping-circles.svg" alt="service icon" className="w-14 md:w-16 h-auto opacity-100" />
                   </div>
                   
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[90px] 2xl:text-[130px] font-bold tracking-tighter uppercase mb-6 leading-[0.8] text-black">
-                     {service.title.split(' ').map((word: string, i: number) => (
-                       <span key={i} className="block">{word}</span>
-                     ))}
-                   </h2>
+                  <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter uppercase mb-6 leading-[0.9] text-black">
+                    {service.title.split(' ').map((word: string, i: number) => (
+                      <span key={i} className="block">{word}</span>
+                    ))}
+                  </h2>
                   
-                   <p className="text-[12px] md:text-[14px] lg:text-[16px] xl:text-[22px] 2xl:text-[32px] font-normal text-black/70 max-w-xl md:max-w-[90%] leading-[1.5] mb-10 md:mb-14">
-                     {service.description || service.desc}
-                   </p>
+                  <p className="text-[13px] md:text-[15px] lg:text-[16px] font-normal text-black/70 max-w-xl leading-relaxed mb-10 md:mb-14">
+                    {service.description || service.desc}
+                  </p>
                 </div>
                 
                 <div className="flex flex-wrap gap-2 md:gap-3 mt-auto">
@@ -111,7 +111,7 @@ export default function ClientServices({ data }: any) {
                 </div>
               </div>
               
-              <div className="w-full lg:w-[46%] h-[300px] md:h-auto md:aspect-[4/3.2] overflow-hidden rounded-[20px] md:rounded-[32px] bg-black/5 mt-auto mb-auto flex-shrink-0 relative">
+              <div className="w-full lg:w-[48%] h-[300px] md:h-[400px] lg:h-auto overflow-hidden rounded-[16px] md:rounded-[24px] bg-black/5 mt-auto mb-auto aspect-[16/10] lg:aspect-auto flex-shrink-0">
                 <img 
                   src={service.image?.asset ? urlFor(service.image).width(800).url() : (typeof service.image === 'string' ? service.image : service.img)} 
                   alt={service.title} 

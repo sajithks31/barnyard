@@ -77,7 +77,7 @@ const ServiceCard = ({
           zIndex: (idx + 1) * 10,
           top: `calc(8% + ${idx * 28}px)`
         }}
-        className="relative bg-[#FAFAFA] text-black rounded-[32px] md:rounded-[48px] p-5 md:p-10 lg:p-16 2xl:p-32 flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-20 hover:bg-white transition-all duration-500 group w-full max-w-[1600px] xl:max-w-[2000px] 2xl:max-w-[2600px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
+        className="relative bg-white text-black rounded-[24px] md:rounded-[32px] p-6 md:p-12 lg:p-14 flex flex-col md:flex-row gap-10 lg:gap-14 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group w-full max-w-[1600px] xl:max-w-[2000px] 2xl:max-w-[2600px] border border-white/20 overflow-hidden"
       >
         <motion.div 
           style={{ opacity: contentOpacity }}
@@ -87,12 +87,12 @@ const ServiceCard = ({
             <div className="mb-6 md:mb-10">
               <img src="/overlapping-circles.svg" alt="icon" className="w-10 md:w-12 h-auto opacity-100" />
             </div>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[90px] 2xl:text-[130px] font-bold tracking-tighter uppercase mb-4 leading-[0.8] pr-4 md:pr-12">
+            <h3 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter uppercase mb-6 leading-[0.9] pr-4 md:pr-12">
               {service.title.split(' ').map((word: string, i: number) => (
                 <span key={i} className="block">{word}</span>
               ))}
             </h3>
-            <p className="text-[12px] md:text-[14px] lg:text-[16px] xl:text-[22px] 2xl:text-[32px] font-normal opacity-60 max-w-full md:max-w-[90%] leading-[1.5] mb-6 md:mb-8">
+            <p className="text-[13px] md:text-[15px] lg:text-[16px] font-normal text-black/70 max-w-xl leading-relaxed mb-6 md:mb-8">
               {service.description || service.desc}
             </p>
             
@@ -114,7 +114,7 @@ const ServiceCard = ({
         
         <motion.div 
           style={{ opacity: contentOpacity }}
-          className="w-full md:w-[46%] h-[220px] md:h-auto md:aspect-[4/3.2] overflow-hidden rounded-[20px] md:rounded-[32px] bg-black/5 order-2 md:order-2 mt-4 md:mt-0 relative shadow-inner"
+          className="w-full md:w-[48%] h-[300px] md:h-auto aspect-[16/10] overflow-hidden rounded-[16px] md:rounded-[24px] bg-black/5 order-2 md:order-2 mt-4 md:mt-0 relative shadow-inner"
         >
           <motion.div style={{ scale: imageScale }} className="w-full h-full">
             <img 
