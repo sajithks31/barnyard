@@ -115,7 +115,7 @@ export default function Marquee({ images, speed = 40, reverse = false }: Marquee
             {images.map((src, idx) => (
               <div
                 key={idx}
-                className="relative shrink-0 w-[80vw] md:w-[45vw] lg:w-[40vw] aspect-[4/5] rounded-[24px] md:rounded-[40px] overflow-hidden bg-neutral-900 border border-white/5 shadow-2xl"
+                className="relative shrink-0 w-[80vw] md:w-[45vw] lg:w-[40vw] aspect-[4/3.75] rounded-[24px] md:rounded-[40px] overflow-hidden bg-neutral-900 border border-white/5 shadow-2xl"
               >
                 <img
                   src={src}
