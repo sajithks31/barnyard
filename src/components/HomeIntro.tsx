@@ -45,16 +45,16 @@ export default function HomeIntro({ data }: HomeIntroProps) {
         viewport={{ once: true, margin: "-100px" }}
         className="max-w-[1800px] xl:max-w-[2400px] 2xl:max-w-[2800px] mx-auto px-6 md:px-12 lg:px-24 flex flex-col items-center"
       >
-        <div className="max-w-4xl flex flex-col items-center">
+        <div className="max-w-7xl flex flex-col items-center">
           <motion.span variants={item} className="rounded-full border border-white/50 px-8 py-2 md:py-2.5 text-[10px] sm:text-[11px] font-normal tracking-[0.15em] uppercase inline-block opacity-90 mb-10 md:mb-12">
             ABOUT US
           </motion.span>
           
-          <motion.h2 variants={item} className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[110px] 2xl:text-[150px] font-normal tracking-tighter leading-[0.95] mb-10 md:mb-14 uppercase whitespace-pre-wrap">
+          <motion.h2 variants={item} className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[90px] 2xl:text-[120px] font-bold tracking-tighter leading-[1.0] mb-10 md:mb-14 uppercase whitespace-pre-wrap">
             {headline}
           </motion.h2>
           
-          <motion.p variants={item} className="text-sm md:text-[15px] lg:text-[17px] text-white/90 mb-12 max-w-[850px] font-light leading-[1.6]">
+          <motion.p variants={item} className="text-sm md:text-base lg:text-lg text-white/60 mb-12 max-w-[900px] font-normal leading-relaxed">
             {paragraph}
           </motion.p>
           
