@@ -57,16 +57,19 @@ export const homepage = defineType({
       name: "introHeadline",
       title: "Intro Headline",
       type: "text",
+      initialValue: "POWERING BRANDS WITH\nCREATIVE THINKING &\nSEAMLESS EXECUTION",
     }),
     defineField({
       name: "introSubheadline",
       title: "Intro Subheadline",
       type: "string",
+      initialValue: "ABOUT US",
     }),
     defineField({
       name: "introParagraph",
       title: "Intro Paragraph",
       type: "text",
+      initialValue: "Barnyard Productions is a creative-led production studio crafting cinematic video, photography, and visual content for modern brands. From first idea to final frame, we combine creative thinking with seamless execution—bringing stories to life in ways that feel authentic, impactful, and impossible to ignore.",
     }),
     defineField({
       name: "introButtonLabel",
